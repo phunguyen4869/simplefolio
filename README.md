@@ -11,7 +11,7 @@
 
 ⚡️ Modern UI Design + Reveal Animations\
 ⚡️ One Page Layout\
-⚡️ Styled with Bootstrap v4.3 + Custom SCSS\
+⚡️ Styled with Bootstrap v5 + Custom SCSS\
 ⚡️ Fully Responsive\
 ⚡️ Valid HTML5 & CSS3\
 ⚡️ Optimized with Parcel\
@@ -36,8 +36,8 @@ These instructions will get you a copy of the project up and running on your loc
 You'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [NPM](http://npmjs.com)) installed on your computer.
 
 ```
-node@v16.4.2 or higher
-npm@7.18.1 or higher
+node@v18 or higher (recommended: v22 LTS)
+npm@9 or higher
 git@2.30.1 or higher
 ```
 
@@ -45,6 +45,12 @@ Also, you can use [Yarn](https://yarnpkg.com/) instead of NPM ☝️
 
 ```
 yarn@v1.22.10 or higher
+```
+
+Or run with Docker:
+
+```bash
+docker compose up --build
 ```
 
 ---
@@ -69,10 +75,6 @@ After that, you can install the dependencies either using NPM or Yarn.
 Using NPM: Simply run the below commands.
 
 ```bash
-# 2022 Update - Fix Dependencies
-$ npm audit fix
-$ npm i @parcel/transformer-sass
-
 # Install dependencies
 $ npm install
 
@@ -338,10 +340,10 @@ I highly recommend to use [Netlify](https://netlify.com) because it is super eas
 ## Technologies used 🛠️
 
 - [Parcel](https://parceljs.org/) - Bundler
-- [Bootstrap 4](https://getbootstrap.com/docs/4.3/getting-started/introduction/) - Frontend component library
+- [Bootstrap 5](https://getbootstrap.com/docs/5.3/getting-started/introduction/) - Frontend component library
 - [Sass](https://sass-lang.com/documentation) - CSS extension language
 - [ScrollReveal.js](https://scrollrevealjs.org/) - JavaScript library
-- [Tilt.js](https://gijsroge.github.io/tilt.js/) - JavaScript tiny parallax library
+- [Vanilla Tilt](https://micku7zu.github.io/vanilla-tilt.js/) - JavaScript tiny parallax library
 
 ## Authors
 

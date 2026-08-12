@@ -1,0 +1,10 @@
+services:
+  web:
+    build: .
+    ports:
+      - "4869:4869"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
