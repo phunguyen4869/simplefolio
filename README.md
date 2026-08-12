@@ -53,6 +53,8 @@ Or run with Docker:
 docker compose up --build
 ```
 
+Then open `http://localhost:4869/` (Docker uses port 4869; local `npm start` still uses 1234).
+
 ---
 
 ## How To Use 🔧

@@ -1,6 +1,9 @@
 import initScrollReveal from "./scripts/scrollReveal";
-import initTiltEffect from "./scripts/tiltAnimation";
 import { targetElements, defaultProps } from "./data/scrollRevealConfig";
 
 initScrollReveal(targetElements, defaultProps);
-initTiltEffect();
+
+// Lazy so tilt failure cannot block ScrollReveal (content stays visible).
+import("./scripts/tiltAnimation")
+  .then((m) => m.default())
+  .catch(() => {});
