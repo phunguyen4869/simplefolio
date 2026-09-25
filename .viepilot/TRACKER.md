@@ -41,6 +41,7 @@ Suggested next version: 1.0.1
 ### Pending Requests
 | ID | Type | Title | Priority | Status |
 |----|------|-------|----------|--------|
+| FEAT-001 | ✨ | Docker usage documentation | should-have | new |
 
 ## Decision Log
 
