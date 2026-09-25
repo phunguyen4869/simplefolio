@@ -5,8 +5,8 @@
 ### Overview
 - **Version**: 1.0.1
 - **Goal**: Make local Docker run and GitHub Pages deploy obvious without changing the site.
-- **Phases**: 2
-- **Status**: Phase 1 complete; Phase 2 not started
+- **Phases**: 3
+- **Status**: Phase 1 complete local (unpushed); Phase 2 not started; Phase 3 planned
 
 ---
 
@@ -36,3 +36,20 @@
 
 **Verification**:
 - [ ] Push to the documented branch runs the Pages workflow, or the mismatch is explicitly documented as accepted
+
+---
+
+### Phase 3: Vietnamese README
+**Goal**: Vietnamese readers get the full README without losing the English file.
+**Estimated Tasks**: 1
+**Dependencies**: Phase 1 (Docker facts). Independent of Phase 2.
+**Request**: ENH-001
+
+| Task | Description | Acceptance Criteria | Complexity |
+|------|-------------|---------------------|------------|
+| 3.1 | Add `README.vi.md` and one link from `README.md` | Vietnamese prose covers the same sections; commands/ports/paths verbatim; English body otherwise unchanged | S |
+
+**Verification**:
+- [ ] `README.vi.md` exists and includes Docker port 4869 + `CHOKIDAR_USEPOLLING`
+- [ ] `README.md` English sections unchanged except a language link
+- [ ] No change to `Dockerfile`, `docker-compose.yml`, or `src/`
