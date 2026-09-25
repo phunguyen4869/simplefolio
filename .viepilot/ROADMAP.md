@@ -6,7 +6,7 @@
 - **Version**: 1.0.1
 - **Goal**: Make local Docker run and GitHub Pages deploy obvious without changing the site.
 - **Phases**: 2
-- **Status**: Not Started
+- **Status**: Phase 1 complete; Phase 2 not started
 
 ---
 
@@ -20,8 +20,8 @@
 | 1.1 | Write Docker usage documentation | Doc covers `docker compose up --build`, URL `http://localhost:4869/`, bind mount + `CHOKIDAR_USEPOLLING`, and how it differs from `npm start` (port 1234) | S |
 
 **Verification**:
-- [ ] Doc exists and matches `Dockerfile` + `docker-compose.yml`
-- [ ] No application source change required
+- [x] Doc exists and matches `Dockerfile` + `docker-compose.yml`
+- [x] No application source change required
 
 ---
 

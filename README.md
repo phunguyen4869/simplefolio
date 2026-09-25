@@ -47,13 +47,20 @@ Also, you can use [Yarn](https://yarnpkg.com/) instead of NPM ☝️
 yarn@v1.22.10 or higher
 ```
 
-Or run with Docker:
+Or run with Docker (no host Node required):
 
 ```bash
 docker compose up --build
 ```
 
-Then open `http://localhost:4869/` (Docker uses port 4869; local `npm start` still uses 1234).
+Open `http://localhost:4869/`. Stop with `docker compose down`.
+
+Docker is a dev server, not a second app:
+
+- Compose publishes `4869:4869`. The container runs Parcel with `--host 0.0.0.0 --port 4869`.
+- `npm start` on the host still uses port 1234. Do not open 1234 for the Docker run.
+- The repo is bind-mounted at `/app`. An anonymous volume keeps container `node_modules` off the host tree.
+- `CHOKIDAR_USEPOLLING=true` is set so file saves reload through the bind mount.
 
 ---
 

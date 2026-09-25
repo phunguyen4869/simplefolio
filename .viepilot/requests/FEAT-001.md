@@ -3,7 +3,7 @@
 ## Meta
 - **ID**: FEAT-001
 - **Type**: Feature
-- **Status**: triaged
+- **Status**: done
 - **Priority**: should-have
 - **Created**: 2026-09-25
 - **Reporter**: User
@@ -35,10 +35,10 @@ Maintainer (PhuNT) and anyone cloning the fork who wants to run without a host N
 - Vietnamese or English: document language is English (`DOCUMENT_LANG=en`) unless the user overrides when planning
 
 ## Acceptance Criteria
-- [ ] Doc states `docker compose up --build` and URL `http://localhost:4869/`
-- [ ] Doc states how Docker differs from `npm start` (port 1234)
-- [ ] Doc mentions bind mount, `node_modules` volume, and `CHOKIDAR_USEPOLLING`
-- [ ] No application source change required for this request
+- [x] Doc states `docker compose up --build` and URL `http://localhost:4869/`
+- [x] Doc states how Docker differs from `npm start` (port 1234)
+- [x] Doc mentions bind mount, `node_modules` volume, and `CHOKIDAR_USEPOLLING`
+- [x] No application source change required for this request
 
 ## Brainstorm Notes
 Skipped. User confirmed 2026-09-25.

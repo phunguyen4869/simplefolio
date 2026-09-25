@@ -1,16 +1,16 @@
 # Phase 1: Docker usage docs - State
 
 ## Overview
-- **Started**: -
-- **Status**: not_started
-- **Progress**: 0/1 tasks (0%)
+- **Started**: 2026-09-25
+- **Status**: complete
+- **Progress**: 1/1 tasks (100%)
 - **Current Task**: -
 
 ## Task Status
 
 | # | Task | Status | Started | Completed | Git Tag |
 |---|------|--------|---------|-----------|---------|
-| 1.1 | Write Docker usage section | not_started | - | - | - |
+| 1.1 | Write Docker usage section | done | 2026-09-25 | 2026-09-25 | simplefolio-vp-p1-t1 |
 
 ## Blockers
 _None currently_
@@ -26,6 +26,7 @@ _None currently_
 
 | File | Action | Task |
 |------|--------|------|
+| README.md | modified | 1.1 |
 
 ## Quality Metrics
 - Tests written: 0

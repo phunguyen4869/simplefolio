@@ -2,13 +2,13 @@
 
 ## Current State
 - **Milestone**: Portfolio ops clarity
-- **Current Phase**: Phase 1 (planned, not started)
-- **Current Task**: 1.1 Write Docker usage section
-- **Last Activity**: 2026-09-25 evolve — phase dir created
+- **Current Phase**: Phase 1 complete
+- **Current Task**: none
+- **Last Activity**: 2026-09-25 task 1.1 README Docker section
 
 ## Progress Overview
 ```
-Phase 1: Docker usage docs       [░░░░░░░░░░] 0%
+Phase 1: Docker usage docs       [██████████] 100%
 Phase 2: Deploy branch alignment [░░░░░░░░░░] 0%
 ─────────────────────────────────────────────
 Overall:                         [░░░░░░░░░░] 0%
@@ -41,7 +41,7 @@ Suggested next version: 1.0.1
 ### Pending Requests
 | ID | Type | Title | Priority | Status |
 |----|------|-------|----------|--------|
-| FEAT-001 | ✨ | Docker usage documentation | should-have | triaged |
+| FEAT-001 | ✨ | Docker usage documentation | should-have | done |
 
 ## Decision Log
 
@@ -56,4 +56,4 @@ Suggested next version: 1.0.1
 _None currently_
 
 ## Next Action
-Run `/vp-auto` for Phase 1 task 1.1. Plan: `.viepilot/phases/01-docker-usage-docs/tasks/01-write-docker-usage.md`. Version stays 1.0.1 (docs-only).
+Phase 1 done. Phase 2 (deploy branch `main` vs `master`) not started. Version stays 1.0.1.

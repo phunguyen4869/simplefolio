@@ -2,7 +2,7 @@
 
 ## Meta
 - **Phase**: 1-docker-usage-docs
-- **Status**: not_started
+- **Status**: done
 - **Complexity**: S
 - **Dependencies**: none
 - **Git Tag**: simplefolio-vp-p1-t1
@@ -19,7 +19,7 @@ Replace the short Docker note in README with a section that matches the files on
 - [x] Task contract fields below are filled with real paths (no `{{PLACEHOLDER}}`).
 - [x] `## Paths` lists every file to modify.
 - [x] `## File-Level Plan` explains what and why.
-- [ ] `.viepilot/phases/01-docker-usage-docs/PHASE-STATE.md` marks this task `in_progress` before the first implementation commit.
+- [x] `.viepilot/phases/01-docker-usage-docs/PHASE-STATE.md` marks this task `in_progress` before the first implementation commit.
 
 If any box is unchecked when coding starts → blocked; finish the plan first.
 
@@ -49,12 +49,12 @@ files_to_read:
 ```
 
 ## Acceptance Criteria
-- [ ] README states `docker compose up --build` and `http://localhost:4869/`
-- [ ] README states `npm start` uses port 1234 and Docker does not
-- [ ] README mentions bind mount, `node_modules` volume, and `CHOKIDAR_USEPOLLING`
-- [ ] Only one Docker usage section in README
-- [ ] `Dockerfile` and `docker-compose.yml` unchanged
-- [ ] `src/` unchanged
+- [x] README states `docker compose up --build` and `http://localhost:4869/`
+- [x] README states `npm start` uses port 1234 and Docker does not
+- [x] README mentions bind mount, `node_modules` volume, and `CHOKIDAR_USEPOLLING`
+- [x] Only one Docker usage section in README
+- [x] `Dockerfile` and `docker-compose.yml` unchanged
+- [x] `src/` unchanged
 
 ## Best Practices to Apply
 - [ ] Commands copied from the compose file, not invented
@@ -75,8 +75,8 @@ files_to_read:
 ```
 (AI ghi lại notes trong quá trình implement)
 - Decisions made: extend README only (evolve, 2026-09-25)
-- Issues encountered:
-- Deviations from plan:
+- Issues encountered: none. grep 4869, CHOKIDAR_USEPOLLING, 1234 matched compose/Dockerfile.
+- Deviations from plan: none. Port 1234 mention at the npm "once the server started" paragraph left as-is.
 ```
 
 ## Verification
@@ -103,7 +103,14 @@ manual:
 
 ## Files Changed
 ```
-(Auto-populated after completion)
+README.md
+.viepilot/phases/01-docker-usage-docs/PHASE-STATE.md
+.viepilot/phases/01-docker-usage-docs/tasks/01-write-docker-usage.md
+.viepilot/TRACKER.md
+.viepilot/HANDOFF.json
+.viepilot/ROADMAP.md
+.viepilot/requests/FEAT-001.md
+CHANGELOG.md
 ```
 
 ## Rollback
