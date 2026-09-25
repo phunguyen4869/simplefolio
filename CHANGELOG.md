@@ -7,6 +7,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 
 ### Added
 - ViePilot brownfield artifacts (`.viepilot/`)
+- Planned: Docker usage section in README (FEAT-001, Phase 1) — not written yet
 
 ## [1.0.1] - existing
 

@@ -2,9 +2,9 @@
 
 ## Current State
 - **Milestone**: Portfolio ops clarity
-- **Current Phase**: Phase 1 (not started)
-- **Current Task**: none — request not logged yet
-- **Last Activity**: 2026-09-25 brownfield crystallize
+- **Current Phase**: Phase 1 (planned, not started)
+- **Current Task**: 1.1 Write Docker usage section
+- **Last Activity**: 2026-09-25 evolve — phase dir created
 
 ## Progress Overview
 ```
@@ -41,7 +41,7 @@ Suggested next version: 1.0.1
 ### Pending Requests
 | ID | Type | Title | Priority | Status |
 |----|------|-------|----------|--------|
-| FEAT-001 | ✨ | Docker usage documentation | should-have | new |
+| FEAT-001 | ✨ | Docker usage documentation | should-have | triaged |
 
 ## Decision Log
 
@@ -56,4 +56,4 @@ Suggested next version: 1.0.1
 _None currently_
 
 ## Next Action
-Log the Docker docs request (`/vp-request`), then `/vp-evolve` → `/vp-auto`.
+Run `/vp-auto` for Phase 1 task 1.1. Plan: `.viepilot/phases/01-docker-usage-docs/tasks/01-write-docker-usage.md`. Version stays 1.0.1 (docs-only).

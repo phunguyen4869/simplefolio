@@ -3,7 +3,7 @@
 ## Meta
 - **ID**: FEAT-001
 - **Type**: Feature
-- **Status**: new
+- **Status**: triaged
 - **Priority**: should-have
 - **Created**: 2026-09-25
 - **Reporter**: User
@@ -44,4 +44,4 @@ Maintainer (PhuNT) and anyone cloning the fork who wants to run without a host N
 Skipped. User confirmed 2026-09-25.
 
 ## Implementation Plan
-To be filled by `/vp-evolve`. Phase 1 in ROADMAP already names this work.
+Phase 1 task 1.1. Spec: `.viepilot/phases/01-docker-usage-docs/SPEC.md`. Task: `.viepilot/phases/01-docker-usage-docs/tasks/01-write-docker-usage.md`. Edit README only. No version bump.
