@@ -1,16 +1,16 @@
 # Phase 3: Vietnamese README - State
 
 ## Overview
-- **Started**: -
-- **Status**: not_started
-- **Progress**: 0/1 tasks (0%)
+- **Started**: 2026-09-25
+- **Status**: complete
+- **Progress**: 1/1 tasks (100%)
 - **Current Task**: -
 
 ## Task Status
 
 | # | Task | Status | Started | Completed | Git Tag |
 |---|------|--------|---------|-----------|---------|
-| 3.1 | Add README.vi.md + link | not_started | - | - | - |
+| 3.1 | Add README.vi.md + link | done | 2026-09-25 | 2026-09-25 | simplefolio-vp-p3-t1 |
 
 ## Blockers
 _None currently_
@@ -26,6 +26,8 @@ _None currently_
 
 | File | Action | Task |
 |------|--------|------|
+| README.vi.md | created | 3.1 |
+| README.md | link only | 3.1 |
 
 ## Quality Metrics
 - Tests written: 0

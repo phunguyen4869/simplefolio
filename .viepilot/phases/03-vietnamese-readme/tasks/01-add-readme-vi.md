@@ -2,7 +2,7 @@
 
 ## Meta
 - **Phase**: 3-vietnamese-readme
-- **Status**: not_started
+- **Status**: done
 - **Complexity**: S
 - **Dependencies**: Phase 1 Docker section already in README.md
 - **Git Tag**: simplefolio-vp-p3-t1
@@ -19,7 +19,7 @@ Vietnamese twin of the full README. English file stays. One link from English to
 - [x] Task contract fields below are filled with real paths (no `{{PLACEHOLDER}}`).
 - [x] `## Paths` lists every file to create or modify.
 - [x] `## File-Level Plan` explains what and why.
-- [ ] `.viepilot/phases/03-vietnamese-readme/PHASE-STATE.md` marks this task `in_progress` before the first implementation commit.
+- [x] `.viepilot/phases/03-vietnamese-readme/PHASE-STATE.md` marks this task `in_progress` before the first implementation commit.
 
 If any box is unchecked when coding starts → blocked; finish the plan first.
 
@@ -51,10 +51,10 @@ files_to_read:
 ```
 
 ## Acceptance Criteria
-- [ ] `README.vi.md` covers the same sections as `README.md` at execution time
-- [ ] Docker facts present: `docker compose up --build`, `http://localhost:4869/`, port 1234 is npm-only, bind mount, `node_modules` volume, `CHOKIDAR_USEPOLLING`
-- [ ] `README.md` diff is only the language link
-- [ ] `Dockerfile`, `docker-compose.yml`, and `src/` unchanged
+- [x] `README.vi.md` covers the same sections as `README.md` at execution time
+- [x] Docker facts present: `docker compose up --build`, `http://localhost:4869/`, port 1234 is npm-only, bind mount, `node_modules` volume, `CHOKIDAR_USEPOLLING`
+- [x] `README.md` diff is only the language link
+- [x] `Dockerfile`, `docker-compose.yml`, and `src/` unchanged
 
 ## Best Practices to Apply
 - [ ] Re-read README.md immediately before translating so FEAT-001 text is the source
@@ -75,8 +75,8 @@ files_to_read:
 ```
 (AI ghi lại notes trong quá trình implement)
 - Decisions made: README.vi.md + one link (evolve, 2026-09-25)
-- Issues encountered:
-- Deviations from plan:
+- Issues encountered: none. grep 4869 / CHOKIDAR_USEPOLLING matched. README.md diff is the language link only.
+- Deviations from plan: noted fork uses Bootstrap 5 in one parenthetical; template list still names Bootstrap 4 to stay parallel with English README.
 ```
 
 ## Verification
@@ -105,7 +105,15 @@ manual:
 
 ## Files Changed
 ```
-(Auto-populated after completion)
+README.vi.md
+README.md
+.viepilot/phases/03-vietnamese-readme/PHASE-STATE.md
+.viepilot/phases/03-vietnamese-readme/tasks/01-add-readme-vi.md
+.viepilot/TRACKER.md
+.viepilot/ROADMAP.md
+.viepilot/requests/ENH-001.md
+.viepilot/HANDOFF.json
+CHANGELOG.md
 ```
 
 ## Rollback

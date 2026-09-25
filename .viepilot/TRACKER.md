@@ -2,15 +2,15 @@
 
 ## Current State
 - **Milestone**: Portfolio ops clarity
-- **Current Phase**: Phase 3 planned (Phase 2 still not started)
-- **Current Task**: 3.1 Add README.vi.md + link
-- **Last Activity**: 2026-09-25 evolve ENH-001
+- **Current Phase**: Phase 3 complete local (Phase 2 still not started)
+- **Current Task**: none
+- **Last Activity**: 2026-09-25 task 3.1 README.vi.md
 
 ## Progress Overview
 ```
 Phase 1: Docker usage docs       [██████████] 100%
 Phase 2: Deploy branch alignment [░░░░░░░░░░] 0%
-Phase 3: Vietnamese README       [░░░░░░░░░░] 0%
+Phase 3: Vietnamese README       [██████████] 100%
 ─────────────────────────────────────────────
 Overall:                         [░░░░░░░░░░] 0%
 ```
@@ -43,7 +43,7 @@ Suggested next version: 1.0.1
 | ID | Type | Title | Priority | Status |
 |----|------|-------|----------|--------|
 | FEAT-001 | ✨ | Docker usage documentation | should-have | done |
-| ENH-001 | 🔧 | Vietnamese README | should-have | triaged |
+| ENH-001 | 🔧 | Vietnamese README | should-have | done |
 
 ## Decision Log
 
@@ -58,4 +58,4 @@ Suggested next version: 1.0.1
 _None currently_
 
 ## Next Action
-Run `/vp-auto --phase 3` for task 3.1. Plan: `.viepilot/phases/03-vietnamese-readme/tasks/01-add-readme-vi.md`. Version stays 1.0.1. Phase 2 untouched.
+Phase 3 done locally. Not PASS until push (BUG-003). Phase 2 still open. Version stays 1.0.1.

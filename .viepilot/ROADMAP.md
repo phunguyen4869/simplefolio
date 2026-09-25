@@ -6,7 +6,7 @@
 - **Version**: 1.0.1
 - **Goal**: Make local Docker run and GitHub Pages deploy obvious without changing the site.
 - **Phases**: 3
-- **Status**: Phase 1 complete local (unpushed); Phase 2 not started; Phase 3 planned
+- **Status**: Phase 1 and 3 complete local (unpushed); Phase 2 not started
 
 ---
 
@@ -50,6 +50,6 @@
 | 3.1 | Add `README.vi.md` and one link from `README.md` | Vietnamese prose covers the same sections; commands/ports/paths verbatim; English body otherwise unchanged | S |
 
 **Verification**:
-- [ ] `README.vi.md` exists and includes Docker port 4869 + `CHOKIDAR_USEPOLLING`
-- [ ] `README.md` English sections unchanged except a language link
-- [ ] No change to `Dockerfile`, `docker-compose.yml`, or `src/`
+- [x] `README.vi.md` exists and includes Docker port 4869 + `CHOKIDAR_USEPOLLING`
+- [x] `README.md` English sections unchanged except a language link
+- [x] No change to `Dockerfile`, `docker-compose.yml`, or `src/`
