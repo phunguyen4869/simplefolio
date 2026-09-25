@@ -1,0 +1,16 @@
+{
+  "project": "simplefolio",
+  "crystallize_version": "3.12.2",
+  "crystallized_at": "2026-09-25T13:40:00+07:00",
+  "mode": "brownfield",
+  "profile_resolved": "none",
+  "ui_direction_read_complete": false,
+  "ui_workspace_skipped": true,
+  "architect_read_complete": false,
+  "document_lang": "en",
+  "communication_lang": "vi",
+  "current_phase": "Phase 1",
+  "current_task": null,
+  "version": "1.0.1",
+  "license": "MIT"
+}

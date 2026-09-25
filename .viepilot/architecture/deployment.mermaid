@@ -1,0 +1,10 @@
+flowchart LR
+  subgraph local [Local]
+    NPM[npm start :1234]
+    DC[docker compose :4869]
+  end
+  subgraph ci [GitHub Actions]
+    WF[gh-pages.yml on main]
+    WF --> Dist[dist/]
+    Dist --> Pages[GitHub Pages]
+  end
