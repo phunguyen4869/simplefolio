@@ -42,6 +42,7 @@ Suggested next version: 1.0.1
 | ID | Type | Title | Priority | Status |
 |----|------|-------|----------|--------|
 | FEAT-001 | ✨ | Docker usage documentation | should-have | done |
+| ENH-001 | 🔧 | Vietnamese README | should-have | new |
 
 ## Decision Log
 
