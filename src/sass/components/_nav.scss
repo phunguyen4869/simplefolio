@@ -60,14 +60,17 @@
     letter-spacing: -0.02em;
 
     @include respond(phone) {
-      display: grid;
-      place-items: center;
+      @include liquid-glass(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 4.8rem;
       height: 4.8rem;
       border-radius: 50%;
       font-size: 1.8rem;
+      line-height: 1;
+      white-space: nowrap;
       pointer-events: auto;
-      @include liquid-glass(4px);
     }
   }
 
@@ -110,6 +113,8 @@
       border-radius: 999px;
       pointer-events: auto;
       transition: transform 0.5s $ease-spring;
+      // Denser glass so labels stay readable over photos
+      background: var(--glass-tint-strong);
 
       &.is-pressed {
         transform: scale(1.03);
@@ -128,7 +133,7 @@
         white-space: nowrap;
 
         &.is-active {
-          color: $primary-color;
+          color: var(--accent-text);
         }
       }
 

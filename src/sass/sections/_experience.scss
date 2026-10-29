@@ -143,7 +143,7 @@ $dot-top: 3.4rem; // lines the dot up with the role title
   .timeline__company {
     margin: 0;
     font-weight: 600;
-    color: $primary-color;
+    color: var(--accent-text);
 
     // "@ Company" on one line with the role when it fits
     &::before {

@@ -1,8 +1,12 @@
 .section {
   position: relative;
-  padding: 12rem 0;
+  padding: 10rem 0;
 
   @include respond(tab-port) {
     padding: 8rem 0;
+  }
+
+  @include respond(phone) {
+    padding: 6.4rem 0;
   }
 }

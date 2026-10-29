@@ -48,6 +48,14 @@
         color: var(--text);
         font-size: 2rem;
       }
+
+      @include respond(phone) {
+        font-size: 1.6rem;
+
+        &:first-child {
+          font-size: 1.8rem;
+        }
+      }
     }
 
     .chips {
