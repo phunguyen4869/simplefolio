@@ -1,39 +1,61 @@
 #contact {
-  background-image: linear-gradient(
-    135deg,
-    $primary-color 0%,
-    $secondary-color 100%
-  );
-  -webkit-clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
-  clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
-  padding: 15rem 0 10rem 0;
-  margin-top: -10rem;
-  margin-bottom: -1px;
-  color: $white-color;
+  overflow: hidden;
+  isolation: isolate;
 
-  @include respond(tab-land) {
-    padding: 10rem 0;
-    clip-path: none;
-    margin-top: 0;
-    -webkit-clip-path: none;
+  // Color for the glass card to refract
+  .contact__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: var(--blob-opacity);
+    pointer-events: none;
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+      animation: float 16s ease-in-out infinite alternate;
+
+      &--1 {
+        width: 36rem;
+        height: 36rem;
+        top: 10%;
+        left: 12%;
+        background: $primary-color;
+      }
+      &--2 {
+        width: 42rem;
+        height: 42rem;
+        bottom: 5%;
+        right: 10%;
+        background: $secondary-color;
+        animation-delay: -8s;
+      }
+    }
   }
 
-  .contact-wrapper {
-    margin-top: 3.2rem;
-    padding: 0 2rem;
-    backface-visibility: hidden;
+  .contact-card {
+    @include liquid-glass(8px);
+    padding: 9.6rem 4.8rem;
+    border-radius: 3.2rem;
+    text-align: center;
 
-    &__text {
-      margin-bottom: 2.5rem;
+    @include respond(phone) {
+      padding: 6.4rem 2.4rem;
+      border-radius: $radius-lg;
     }
 
-    &__text,
-    a {
-      font-size: 2.4rem;
+    &__title {
+      font-size: clamp(3.2rem, 5vw, 5.6rem);
+      max-width: 18ch;
+      margin: 0 auto 2.4rem;
+    }
 
-      @include respond(phone) {
-        font-size: 2rem;
-      }
+    &__text {
+      font-size: 1.8rem;
+      color: var(--text-muted);
+      max-width: 52rem;
+      margin: 0 auto 4rem;
     }
   }
 }

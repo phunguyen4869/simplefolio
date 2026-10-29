@@ -1,4 +1,28 @@
-// Margins
-.mb-8 {
-  margin-bottom: 8rem !important;
+.container {
+  width: 100%;
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 2.4rem;
+
+  @include respond(phone) {
+    padding: 0 1.6rem;
+  }
+}
+
+.text-gradient {
+  background-image: $gradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.icon {
+  width: 1.8rem;
+  height: 1.8rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
 }

@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "parcel",
-    "build": "parcel build"
+    "build": "parcel build && cp src/assets/og-image.png dist/og-image.png"
   },
   "repository": {
     "type": "git",
@@ -29,11 +29,6 @@
     "@parcel/transformer-sass": "^2.16.4",
     "parcel": "^2.16.4",
     "prettier": "^3.9.6"
-  },
-  "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.8",
-    "vanilla-tilt": "^1.8.1"
   },
   "engines": {
     "node": ">=18"

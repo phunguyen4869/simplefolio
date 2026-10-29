@@ -1,67 +1,23 @@
 export const defaultProps = {
-  easing: "cubic-bezier(0.5, 0, 0, 1)",
-  distance: "30px",
-  duration: 1000,
+  easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+  distance: "24px",
+  duration: 900,
+  origin: "bottom",
   desktop: true,
   mobile: true,
 };
 
 export const targetElements = [
-  {
-    element: ".section-title",
-    animation: {
-      delay: 300,
-      distance: "0px",
-      origin: "bottom",
-    },
-  },
-  {
-    element: ".hero-title",
-    animation: {
-      delay: 500,
-      origin: window.innerWidth > 768 ? "left" : "bottom",
-    },
-  },
-  {
-    element: ".hero-cta",
-    animation: {
-      delay: 1000,
-      origin: window.innerWidth > 768 ? "left" : "bottom",
-    },
-  },
-  {
-    element: ".about-wrapper__image",
-    animation: {
-      delay: 600,
-      origin: "bottom",
-    },
-  },
-  {
-    element: ".about-wrapper__info",
-    animation: {
-      delay: 1000,
-      origin: window.innerWidth > 768 ? "left" : "bottom",
-    },
-  },
-  {
-    element: ".project-wrapper__text",
-    animation: {
-      delay: 500,
-      origin: window.innerWidth > 768 ? "left" : "bottom",
-    },
-  },
-  {
-    element: ".project-wrapper__image",
-    animation: {
-      delay: 1000,
-      origin: window.innerWidth > 768 ? "right" : "bottom",
-    },
-  },
-  {
-    element: ".contact-wrapper",
-    animation: {
-      delay: 800,
-      origin: "bottom",
-    },
-  },
+  { element: ".hero-badge", animation: { delay: 100 } },
+  { element: ".hero-title", animation: { delay: 200 } },
+  { element: ".hero-subtitle", animation: { delay: 350 } },
+  { element: ".hero-cta", animation: { delay: 500 } },
+  { element: ".section-title", animation: { delay: 100 } },
+  { element: ".about-wrapper__image", animation: { delay: 200, scale: 0.96 } },
+  { element: ".about-wrapper__info", animation: { delay: 350 } },
+  // Glass blocks slide in without fading: Chrome draws a square backdrop
+  // artifact while a backdrop-filter element is semi-transparent.
+  { element: ".timeline__item", animation: { delay: 150, interval: 120, opacity: null } },
+  { element: ".bento-card", animation: { delay: 150, interval: 120, scale: 0.97, opacity: null } },
+  { element: ".contact-card", animation: { delay: 150, scale: 0.97, opacity: null } },
 ];

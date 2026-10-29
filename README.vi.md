@@ -1,36 +1,40 @@
-# Simplefolio ⚡️
+# Phú Nguyễn — Portfolio ⚡️
 
-[English](README.md)
+[English](README.md) · [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE.md)
+
+Portfolio cá nhân của **Phú Nguyễn**, Senior Full Stack Developer. Đây là trang web tĩnh một trang, dùng Parcel, Sass và JavaScript thuần, phát triển từ template [Simplefolio](https://github.com/cobiwave/simplefolio) của Jacobo Martínez.
 
 <p align="center">
-  <img alt="Demo" src="./examples/example.gif" />
+  <img src="src/assets/og-image.png" alt="Ảnh xem trước portfolio" width="720" />
 </p>
 
-## 🌐 Demo
+## Tính năng
 
-Xem trang mẫu [tại đây](https://simplefolio.js.org/)
+- **Giao diện liquid glass** lấy cảm hứng từ iOS 26 của Apple: kính mờ, màu đậm, có viền phản sáng trên navbar, nút, chip và thẻ.
+- **Khúc xạ ở mép kính** (Chromium): mỗi bề mặt kính bẻ cong nội dung phía sau ở gần mép. Trình duyệt khác vẫn có kính mờ, chỉ không có hiệu ứng bẻ cong.
+- **Phản hồi khi bấm**: nút, icon và navbar phồng lên rồi nảy về khi bấm.
+- **Giao diện tối và sáng**: theo cài đặt của máy, có nút chuyển và nhớ lựa chọn của người xem.
+- **Tiếng Anh / tiếng Việt**: một nút đổi toàn bộ nội dung, tiêu đề trang và meta description. Mặc định là tiếng Anh.
+- **Tab bar trên mobile**: trên điện thoại, thanh điều hướng chuyển xuống đáy màn hình thành tab bar bằng kính, dễ bấm bằng ngón cái.
+- **Các phần**: Hero, Giới thiệu, Kinh nghiệm (timeline), Dự án (lưới bento), Liên hệ.
+- **SEO và chia sẻ**: meta description và từ khoá cho cả hai ngôn ngữ, thẻ Open Graph và Twitter card kèm ảnh xem trước 1200×630 cho Facebook, Zalo và các nền tảng khác.
+- **Nhẹ**: ảnh WebP, không dùng framework CSS, sau khi build còn khoảng 27 kB CSS và 9 kB JS.
+- Tôn trọng cài đặt `prefers-reduced-motion` (giảm chuyển động).
 
-## 🛠 Hướng dẫn
+## Bắt đầu 🚀
 
-Hướng dẫn từng bước (tiếng Anh): [tại đây](https://www.youtube.com/watch?v=mQ5rvg6zGAk)
-
-## 🚨 Forking repo này (quan trọng)
-
-Fork repo này có thể gây lỗi nếu không làm đúng. Fork dùng để đề xuất thay đổi, còn portfolio của bạn thì nên clone hoặc tải zip rồi đẩy lên repo riêng.
-
-Xem: [Fork A Repo](https://help.github.com/en/articles/fork-a-repo) và [Cloning a Repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
-
-## 📝 Bắt đầu
-
-Fork repo này rồi clone về máy, hoặc tải zip.
+Cần [Node.js](https://nodejs.org/) từ bản 18 trở lên (khuyên dùng 22 LTS) và npm.
 
 ```bash
-git clone https://github.com/cobiwave/simplefolio.git
+npm install
+npm start
 ```
 
-Cài [Node](https://nodejs.org) và [npm](https://www.npmjs.com/) (thường đi kèm Node).
+Mở `http://localhost:1234/`.
 
-Hoặc chạy bằng Docker (không cần cài Node trên máy):
+### Docker
+
+Không cần cài Node trên máy:
 
 ```bash
 docker compose up --build
@@ -38,147 +42,83 @@ docker compose up --build
 
 Mở `http://localhost:4869/`. Dừng bằng `docker compose down`.
 
-Docker chỉ là dev server, không phải app thứ hai:
-
 - Compose publish `4869:4869`. Container chạy Parcel với `--host 0.0.0.0 --port 4869`.
 - `npm start` trên máy vẫn dùng cổng 1234. Đừng mở 1234 khi đang chạy Docker.
 - Repo được bind-mount tại `/app`. Volume ẩn giữ `node_modules` của container, tách khỏi cây file trên máy.
 - `CHOKIDAR_USEPOLLING=true` để lưu file vẫn reload qua bind mount.
 
-Cài dependency:
-
-```bash
-npm install
-```
-
-Chạy dev server:
-
-```bash
-npm start
-```
-
-Server chạy xong, mở `http://localhost:1234/` để xem portfolio trên máy. Ảnh chụp bên dưới.
-
-<p align="center">
-  <img alt="Demo" src="./examples/example.png" />
-</p>
-
-### 📦 Sửa thông tin
-
-Sửa [index.html](https://github.com/cobiwave/simplefolio/blob/master/src/index.html) cho đúng thông tin của bạn, kể cả link mạng xã hội và project trong portfolio.
-
-### 🎨 Đổi màu
-
-Sửa [variables.scss](https://github.com/cobiwave/simplefolio/blob/master/src/sass/abstracts/_variables.scss) để đổi màu. Mỗi project trong portfolio có màu nền riêng — đổi trong [index.html](https://github.com/cobiwave/simplefolio/blob/master/src/index.html).
-
-### 📸 Đổi ảnh
-
-Đổi ảnh trong thư mục `assets`. Để thêm ảnh mới, chỉ cần đặt file vào `assets` và link trong [index.html](https://github.com/cobiwave/simplefolio/blob/master/src/index.html).
-
-### 📄 Đổi CV
-
-Thay file `src/assets/resume.pdf` bằng CV của bạn.
-
-### 🚀 Deploy
-
-Khi sẵn sàng đưa portfolio lên mạng, chạy lệnh build để tạo bản production. Output nằm ở thư mục `dist`.
+### Build
 
 ```bash
 npm run build
 ```
 
-Sau đó làm theo hướng dẫn deploy của host bạn chọn (GitHub Pages, Netlify, Vercel, …).
+Kết quả nằm trong `dist/`. Lệnh build cũng chép `og-image.png` vào gốc của `dist/`, để link Open Graph có địa chỉ cố định.
 
-## 🛠 Cài đặt
+> Nếu dev server vẫn chạy code cũ sau khi sửa, hãy dừng server, xoá thư mục `.parcel-cache/` rồi chạy lại.
 
-1. Cài [NodeJS](https://nodejs.org/en/)
-2. Cài [Git](https://git-scm.com/)
-3. Chạy lệnh sau để cài [Parcel](https://parceljs.org/) toàn cục (nên dùng bản stable mới nhất)
+## Sửa nội dung 🔧
 
-```bash
-npm install -g parcel-bundler
-```
+| Nội dung | File |
+|----------|------|
+| Nội dung tiếng Anh, link, dự án, kinh nghiệm | `src/index.html` |
+| Nội dung tiếng Việt | `src/data/translations.js` |
+| Tiêu đề trang, mô tả, từ khoá, Open Graph | phần `<head>` của `src/index.html` (tiêu đề và mô tả tiếng Việt: các key `meta.*` trong `translations.js`) |
+| Ảnh đại diện, ảnh dự án, CV | `src/assets/` (`profile.webp`, `project.webp`, `resume.pdf`) |
+| Màu sắc và biến giao diện | `src/sass/abstracts/_variables.scss` |
+| Hiệu ứng khi cuộn | `src/data/scrollRevealConfig.js` |
 
-## 🔧 Template này dùng
+### Bản dịch
 
-- **[HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)** — markup
-- **[Sass](https://sass-lang.com/documentation/syntax)** — CSS
-- **[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)** — tương tác
-- **[Parcel](https://parceljs.org/)** — bundle
-- **[Bootstrap 4](https://getbootstrap.com/docs/4.3/getting-started/introduction/)** — layout (fork này đã lên Bootstrap 5; xem `package.json`)
-- **[Tilt.js](https://gijsroge.github.io/tilt.js/)** — hiệu ứng nghiêng
+Mỗi phần tử cần dịch có một key:
 
-## 📚 Tài nguyên hữu ích
+- `data-i18n="key"`: chữ thường.
+- `data-i18n-html="key"`: chữ có thẻ HTML, ví dụ tên tô gradient ở hero.
+- `data-i18n-content="key"`: thuộc tính `content` của thẻ `<meta>`.
 
-- [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
-- [Sass](https://sass-lang.com/documentation/syntax)
-- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [Parcel](https://parceljs.org/)
-- [Bootstrap 4](https://getbootstrap.com/docs/4.3/getting-started/introduction/)
-- [Tilt.js](https://gijsroge.github.io/tilt.js/)
+Chữ tiếng Anh nằm ngay trong HTML. Bản tiếng Việt đặt cùng key trong `src/data/translations.js`. Khi sửa nội dung, nhớ sửa cả hai nơi.
 
-## 🚀 Tính năng
+### Kinh nghiệm
 
-- Dễ sửa — HTML, CSS, JS thuần
-- Responsive
-- Có thể thêm project
-- Hiệu ứng nghiêng (tilt)
-- One page
-- Đổi màu dễ
-- Ảnh minh họa project
-- Liên hệ qua form
-- Link mạng xã hội
+Mỗi công việc là một `<li class="timeline__item">` trong `<ol class="timeline">`, mới nhất đặt trên cùng. Chấm của công việc hiện tại dùng class `timeline__dot--current` để nhấp nháy.
 
-## 🎁 Đóng góp
+### Dự án
 
-Mọi đóng góp đều được chào đón. Muốn thêm tính năng hoặc sửa lỗi, xem [issues](https://github.com/cobiwave/simplefolio/issues) hoặc tạo issue mới.
+Mỗi dự án là một `<article class="bento-card">` trong `<div class="bento">`. Thẻ đầu tiên có class `bento-card--featured` và chiếm ô lớn. Trên tablet các thẻ xếp thành 2 cột, trên điện thoại thành 1 cột.
 
-1. Fork repo
-2. Clone về máy
-3. Tạo nhánh: `git checkout -b ten-nhanh`
-4. Thay đổi rồi commit: `git commit -m 'Mo ta ngan'`
-5. Push nhánh: `git push origin ten-nhanh`
-6. Mở Pull Request
+### Màu sắc
 
-> **Lưu ý**
->
-> - Trước khi làm, xem [issues](https://github.com/cobiwave/simplefolio/issues) để chắc chưa ai làm cùng việc.
-> - Kiểm tra xem có Pull Request nào đang làm tính năng đó chưa.
-> - Nên chờ issue được gán trước khi bắt đầu, tránh trùng việc.
+Đổi `$primary-color` và `$secondary-color` trong `_variables.scss` để đổi gradient chủ đạo. Màu theo giao diện (nền, chữ, độ ám màu của kính) là các biến CSS trong mixin `theme-dark` và `theme-light` cùng file.
 
-## 🤝 Hỗ trợ
+### Liquid glass
 
-Mọi ý kiến đều hữu ích. Muốn hỗ trợ, cho repo một ⭐️.
+- Style: mixin `liquid-glass` trong `src/sass/abstracts/_mixins.scss`. Dùng `@include liquid-glass($blur, $shadow)` để biến một phần tử bất kỳ thành kính.
+- Khúc xạ và hiệu ứng bấm: `src/scripts/liquidGlass.js`. Thêm selector vào `SELECTOR` để phần tử có khúc xạ ở mép, và vào `PRESSABLE` để nó phồng lên khi bấm.
 
-## 📜 Giấy phép
+### Ảnh xem trước khi chia sẻ
 
-Dự án dùng giấy phép MIT. Chi tiết: [LICENSE.md](https://github.com/cobiwave/simplefolio/blob/master/LICENSE.md).
+`src/assets/og-image.png` là ảnh hiện ra khi chia sẻ link, kích thước 1200×630. Nếu thay ảnh, hãy giữ đúng kích thước này.
 
-## 📚 Bạn cũng có thể thích
+Các thẻ `og:url`, `og:image` và `canonical` đang trỏ tới `https://phunguyen4869.github.io/simplefolio/`. Nếu bạn host ở chỗ khác, hãy sửa cả ba URL này. Facebook và Zalo cần URL đầy đủ (tuyệt đối).
 
-- [Next-Landing](https://github.com/cobidev/next-landing)
-- [Next-Blog](https://github.com/cobidev/next-blog)
-- [Next-Flask](https://github.com/cobidev/next-flask)
-- [Gatsby-Simplefolio](https://github.com/cobidev/gatsby-simplefolio)
-- [Gatsby-Blog](https://github.com/cobidev/gatsby-blog)
-- [React-Simplefolio](https://github.com/cobidev/react-simplefolio)
-- [React-Landing](https://github.com/cobidev/react-landing)
+Sau khi deploy, kiểm tra ảnh xem trước bằng [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/). Công cụ này cũng làm mới bộ nhớ đệm của Facebook.
 
-## 👋 Liên hệ
+## Deploy 📦
 
-- Website [cobidev.com](https://cobidev.com)
-- GitHub [@cobidev](https://github.com/cobidev)
-- Twitter [@cobidev](https://twitter.com/cobidev)
-- Linkedin [@cobidev](https://www.linkedin.com/in/cobidev/)
-- Instagram [@cobidev](https://instagram.com/cobidev)
+`.github/workflows/gh-pages.yml` build trang và đăng thư mục `dist/` lên GitHub Pages. Bạn cũng có thể tải `dist/` lên Netlify, Vercel hoặc bất kỳ host tĩnh nào.
 
-## 💖 Hỗ trợ
+## Công nghệ 🛠️
 
-[![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/cobidev)
+- [Parcel](https://parceljs.org/): bundler
+- [Sass](https://sass-lang.com/documentation): style
+- [ScrollReveal](https://scrollrevealjs.org/): hiệu ứng hiện dần khi cuộn
+- SVG filter và `backdrop-filter`: hiệu ứng khúc xạ liquid glass
 
-Dự án này là open source và miễn phí. Muốn ủng hộ, có thể:
+## Ghi công
 
-- Tặng ⭐️
-- [Tài trợ](https://github.com/sponsors/cobidev) qua GitHub Sponsors
+- Template gốc: [Simplefolio](https://github.com/cobiwave/simplefolio) của [Jacobo Martínez](https://github.com/cobiwave)
+- Portfolio và thiết kế lại: [Phú Nguyễn](https://github.com/phunguyen4869)
 
-Cảm ơn.
+## Giấy phép 📄
+
+MIT. Xem [LICENSE.md](LICENSE.md).

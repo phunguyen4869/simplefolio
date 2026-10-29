@@ -12,8 +12,9 @@
 | Page content | `src/index.html` |
 | Entry script | `src/index.js` |
 | Styles | `src/styles.scss` → `src/sass/**` |
-| Reveal / tilt | `src/scripts/`, `src/data/scrollRevealConfig.js` |
-| Assets | `src/assets/` (profile, resume, project image) |
+| Scripts (reveal, nav, theme, i18n, liquid glass) | `src/scripts/`, `src/data/scrollRevealConfig.js` |
+| Vietnamese copy | `src/data/translations.js` |
+| Assets | `src/assets/` (profile.webp, project.webp, resume.pdf, og-image.png) |
 | Run locally | `npm start` → http://localhost:1234/ |
 | Run Docker | `docker compose up --build` → http://localhost:4869/ |
 | Deploy | `.github/workflows/gh-pages.yml` (branch `main`, output `dist/`) |

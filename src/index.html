@@ -6,336 +6,527 @@
   -
   Github Repo: https://github.com/cobiwave/simplefolio/
   Readme: https://github.com/cobiwave/simplefolio/README.md
-  -
-  For business & inquires, contact me -> jacobojavier98@gmail.com
 -->
 <!DOCTYPE html>
 <html lang="en" class="sr">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="color-scheme" content="dark light" />
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
 
     <!-- Todo: put here your site title -->
-    <title>Phú Nguyễn | Developer</title>
-    <!-- Todo: add some coding keywords below - e.g: (javascript, yourusername, etc) -->
-    <meta name="keywords" content="phunguyen, Phú Nguyễn, developer" />
-    <!-- Todo: improve your SEO by adding a small description of you -->
-    <meta name="description" content="Phú Nguyễn | Developer" />
+    <title data-i18n="meta.title">
+      Phú Nguyễn | Senior Full Stack Developer
+    </title>
+    <meta
+      name="description"
+      data-i18n-content="meta.description"
+      content="Phú Nguyễn — Senior Full Stack Developer working with PHP, Laravel, VueJS, Golang and AWS. Building fast, reliable products for the web."
+    />
+    <!-- Keywords cover both languages; search engines read the English page -->
+    <meta
+      name="keywords"
+      content="Phú Nguyễn, phunguyen4869, Senior Full Stack Developer, Fullstack Developer, PHP, Laravel, VueJS, Golang, CakePHP, PostgreSQL, Redis, AWS, lập trình viên full stack, lập trình viên PHP, lập trình viên Laravel, portfolio lập trình viên"
+    />
+    <meta name="author" content="Phú Nguyễn" />
 
+    <!-- Open Graph / Facebook / Zalo. Todo: replace the domain if you host elsewhere -->
+    <link rel="canonical" href="https://phunguyen4869.github.io/simplefolio/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Phú Nguyễn" />
+    <meta
+      property="og:url"
+      content="https://phunguyen4869.github.io/simplefolio/"
+    />
+    <meta
+      property="og:title"
+      content="Phú Nguyễn | Senior Full Stack Developer"
+    />
+    <meta
+      property="og:description"
+      content="Senior Full Stack Developer · Lập trình viên Full Stack — PHP, Laravel, VueJS, Golang, AWS."
+    />
+    <meta
+      property="og:image"
+      content="https://phunguyen4869.github.io/simplefolio/og-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Phú Nguyễn — Senior Full Stack Developer"
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="vi_VN" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Apply saved theme before paint to avoid a flash -->
+    <script>
+      try {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
     />
     <link rel="stylesheet" href="styles.scss" />
     <script
       defer
       src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"
     ></script>
-
-    <!-- Todo: remove the below script once you finish your portfolio -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
   </head>
 
-  <!-- Todo: read the following HTML Todos to create your stunning portfolio website -->
+  <!-- Notice: English copy lives in this file; Vietnamese is in data/translations.js (same data-i18n keys) -->
   <body>
     <div id="top"></div>
 
-    <!-- **** Hero Section **** -->
-    <section id="hero" class="jumbotron">
-      <div class="container">
-        <h1 class="hero-title load-hidden">
-          Hi, my name is <span class="text-color-main">Phú Nguyễn</span>
-          <br />
-          I'm the Senior Full Stack Developer.
-        </h1>
-        <p class="hero-cta load-hidden">
-          <a rel="noreferrer" class="cta-btn cta-btn--hero" href="#about"
-            >Know more</a
+    <!-- **** Navigation **** -->
+    <header class="nav" id="nav">
+      <div class="nav__inner">
+        <a href="#top" class="nav__logo" aria-label="Back to top">
+          PN<span class="text-gradient">.</span>
+        </a>
+        <nav class="nav__links js-nav-links" aria-label="Primary">
+          <span class="nav__indicator" aria-hidden="true"></span>
+          <a href="#about">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="8" r="4" />
+              <path d="M4 21a8 8 0 0 1 16 0" />
+            </svg>
+            <span class="nav__label" data-i18n="nav.about">About</span>
+          </a>
+          <a href="#experience">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="7" width="18" height="13" rx="2" />
+              <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18" />
+            </svg>
+            <span class="nav__label" data-i18n="nav.experience"
+              >Experience</span
+            >
+          </a>
+          <a href="#projects">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="11" height="11" rx="2" />
+              <rect x="17" y="3" width="4" height="11" rx="1.5" />
+              <rect x="3" y="17" width="18" height="4" rx="1.5" />
+            </svg>
+            <span class="nav__label" data-i18n="nav.projects">Projects</span>
+          </a>
+          <a href="#contact">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="m3 7 9 6 9-6" />
+            </svg>
+            <span class="nav__label" data-i18n="nav.contact">Contact</span>
+          </a>
+        </nav>
+        <div class="nav__actions">
+          <button
+            class="icon-btn lang-btn js-lang-toggle"
+            type="button"
+            aria-label="Switch language"
           >
-        </p>
-      </div>
-    </section>
-    <!-- /END Hero Section -->
-
-    <!-- **** About Section **** -->
-    <section id="about">
-      <div class="container">
-        <h2 class="section-title load-hidden">About me</h2>
-        <div class="row about-wrapper">
-          <div class="col-md-6 col-sm-12">
-            <div class="about-wrapper__image load-hidden">
-              <img
-                alt="Profile Image"
-                class="img-fluid rounded shadow-lg"
-                height="auto"
-                width="300px"
-                src="assets/profile.jpg"
-                alt="Profile Image"
+            VI
+          </button>
+          <button
+            class="icon-btn js-theme-toggle"
+            type="button"
+            aria-label="Toggle color theme"
+          >
+            <svg class="icon icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
               />
-            </div>
+            </svg>
+            <svg class="icon icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- **** Hero Section **** -->
+      <section id="hero">
+        <div class="hero__bg" aria-hidden="true">
+          <span class="blob blob--1"></span>
+          <span class="blob blob--2"></span>
+          <span class="blob blob--3"></span>
+        </div>
+        <div class="container">
+          <p class="badge hero-badge load-hidden">
+            <span class="badge__dot"></span>
+            <span data-i18n="hero.badge">Available for new opportunities</span>
+          </p>
+          <h1 class="hero-title load-hidden" data-i18n-html="hero.title">
+            Hi, I'm <span class="text-gradient">Phú Nguyễn</span>.<br />
+            I build products people love to use.
+          </h1>
+          <p class="hero-subtitle load-hidden" data-i18n="hero.subtitle">
+            Senior Full Stack Developer crafting fast, reliable and thoughtfully
+            designed experiences — from database to pixel.
+          </p>
+          <div class="hero-cta load-hidden">
+            <a class="btn btn--primary" href="#projects">
+              <span data-i18n="hero.ctaWork">View my work</span>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+            <a class="btn btn--ghost" href="#contact" data-i18n="hero.ctaContact"
+              >Get in touch</a
+            >
           </div>
-          <div class="col-md-6 col-sm-12">
+        </div>
+        <a href="#about" class="scroll-hint" aria-label="Scroll to About">
+          <span></span>
+        </a>
+      </section>
+      <!-- /END Hero Section -->
+
+      <!-- **** About Section **** -->
+      <section id="about" class="section">
+        <div class="container">
+          <p class="section-eyebrow" data-i18n="about.eyebrow">01 — About</p>
+          <h2 class="section-title load-hidden" data-i18n="about.title">
+            A bit about me
+          </h2>
+          <div class="about-wrapper">
+            <div class="about-wrapper__image load-hidden">
+              <div class="frame">
+                <img
+                  alt="Portrait of Phú Nguyễn"
+                  width="360"
+                  height="360"
+                  src="assets/profile.webp"
+                />
+              </div>
+            </div>
             <div class="about-wrapper__info load-hidden">
-              <p class="about-wrapper__info-text">
+              <p class="about-wrapper__info-text" data-i18n="about.text1">
                 This is where you can describe about yourself. The more you
                 describe about yourself, the more chances you have!
               </p>
-              <p class="about-wrapper__info-text">
+              <p class="about-wrapper__info-text" data-i18n="about.text2">
                 Extra Information about you! like hobbies and your goals.
               </p>
-              <span class="d-flex mt-3">
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--resume"
-                  href="assets/resume.pdf"
-                >
-                  View Resume
-                </a>
-              </span>
+
+              <!-- Todo: list the technologies you work with -->
+              <ul class="chips" aria-label="Tech stack">
+                <li>PHP</li>
+                <li>Laravel</li>
+                <li>VueJS</li>
+                <li>Golang</li>
+                <li>PostgreSQL</li>
+                <li>MySQL</li>
+                <li>Redis</li>
+                <li>AWS</li>
+              </ul>
+
+              <a
+                rel="noreferrer"
+                target="_blank"
+                class="btn btn--ghost"
+                href="assets/resume.pdf"
+              >
+                <span data-i18n="about.resume">View Resume</span>
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M8 7h9v9" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- /END About Section -->
+      </section>
+      <!-- /END About Section -->
 
-    <!-- **** Projects Section **** -->
-    <section id="projects">
-      <div class="container">
-        <div class="project-wrapper">
-          <h2 class="section-title dark-blue-text">Projects</h2>
+      <!-- **** Experience Section **** -->
+      <section id="experience" class="section">
+        <div class="container">
+          <p class="section-eyebrow" data-i18n="experience.eyebrow">
+            02 — Experience
+          </p>
+          <h2 class="section-title load-hidden" data-i18n="experience.title">
+            Where I've worked
+          </h2>
 
-          <!-- Notice: each .row is a project -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Project Title 0</h3>
-                <div>
-                  <p class="mb-4">
-                    Describe the project being very specific, you can use the Twitter standard: no more than 280 characters: 
-                    complement the information: the skills learned or reinforced in its realization and how you faced it, 
-                    prove to be proactive in the search for solutions.
-                  </p>
-                </div>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="#!"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="#!"
-                >
-                  Source Code
-                </a>
+          <!-- Notice: each .timeline__item is a job, newest first -->
+          <ol class="timeline">
+            <li class="timeline__item load-hidden">
+              <div class="timeline__meta">
+                <span class="timeline__period">
+                  2023 — <span data-i18n="experience.present">Present</span>
+                </span>
               </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image load-hidden">
-                <a rel="noreferrer" href="#!" target="_blank">
-                  <div
-                    data-tilt
-                    data-tilt-max="4"
-                    data-tilt-glare="true"
-                    data-tilt-max-glare="0.5"
-                    class="thumbnail rounded js-tilt"
-                  >
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/project.jpg"
-                    />
-                  </div>
-                </a>
+              <span
+                class="timeline__dot timeline__dot--current"
+                aria-hidden="true"
+              ></span>
+              <article class="timeline__card">
+                <header class="timeline__header">
+                  <h3 class="timeline__role">Fullstack Developer</h3>
+                  <p class="timeline__company">SmartGift Solution</p>
+                </header>
+                <!-- Todo: describe what you built and the impact you had -->
+                <p class="timeline__text" data-i18n="experience.smartgift.text">
+                  Describe your role here: the products you built, the problems
+                  you solved and the impact you had on the team.
+                </p>
+                <ul class="chips chips--sm">
+                  <li>PHP</li>
+                  <li>Laravel</li>
+                  <li>VueJS</li>
+                  <li>CakePHP</li>
+                  <li>PostgreSQL</li>
+                  <li>Golang</li>
+                  <li>Redis</li>
+                  <li>AWS</li>
+                </ul>
+              </article>
+            </li>
+            <li class="timeline__item load-hidden">
+              <div class="timeline__meta">
+                <span class="timeline__period">2022 — 2023</span>
               </div>
-            </div>
-          </div>
-          <!-- /END Project -->
-
-          <!-- Notice: each .row is a project -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Project Title 1</h3>
-                <div>
-                  <p class="mb-4">
-                    Demonstrate in this description the skills of a programmer: such as having commitment, 
-                    having perseverance and accepting alternative solutions. Remember that being a portfolio you are not selling the project, 
-                    you are selling yourself, it reflects the resources used: Frameworks, libraries, platforms, etc.
-                  </p>
-                </div>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="#!"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="#!"
-                >
-                  Source Code
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image load-hidden">
-                <a rel="noreferrer" href="#!" target="_blank">
-                  <div
-                    data-tilt
-                    data-tilt-max="4"
-                    data-tilt-glare="true"
-                    data-tilt-max-glare="0.5"
-                    class="thumbnail rounded js-tilt"
-                  >
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/project.jpg"
-                    />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- /END Project -->
-
-          <!-- Notice: each .row is a project -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Project Title 2</h3>
-                <div>
-                  <p class="mb-4">
-                    If the project was collaborative, reflect it in this description, that will demonstrate communication and/or leadership skills. 
-                    Additionally, if you made use of the mastery of a second language, it will reflect on you professionalism.
-                  </p>
-                </div>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="#!"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="#!"
-                >
-                  Source Code
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image load-hidden">
-                <a rel="noreferrer" href="#!" target="_blank">
-                  <div
-                    data-tilt
-                    data-tilt-max="4"
-                    data-tilt-glare="true"
-                    data-tilt-max-glare="0.5"
-                    class="thumbnail rounded js-tilt"
-                  >
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/project.jpg"
-                    />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- /END Project -->
+              <span class="timeline__dot" aria-hidden="true"></span>
+              <article class="timeline__card">
+                <header class="timeline__header">
+                  <h3 class="timeline__role">Fullstack Developer</h3>
+                  <p class="timeline__company">BigIn</p>
+                </header>
+                <!-- Todo: describe what you built and the impact you had -->
+                <p class="timeline__text" data-i18n="experience.bigin.text">
+                  Describe your role here: the products you built, the problems
+                  you solved and the impact you had on the team.
+                </p>
+                <ul class="chips chips--sm">
+                  <li>PHP</li>
+                  <li>Laravel</li>
+                  <li>VueJS</li>
+                  <li>MySQL</li>
+                  <li>WordPress</li>
+                  <li>GitLab</li>
+                </ul>
+              </article>
+            </li>
+          </ol>
         </div>
-      </div>
-    </section>
-    <!-- /END Projects Section -->
+      </section>
+      <!-- /END Experience Section -->
 
-    <!-- **** Contact Section **** -->
-    <section id="contact">
-      <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-wrapper load-hidden">
-          <p class="contact-wrapper__text">[Put your call to action here]</p>
-          <a
-            rel="noreferrer"
-            target="_blank"
-            class="cta-btn cta-btn--resume"
-            href="mailto:example@email.com"
-            >Call to Action</a
-          >
+      <!-- **** Projects Section **** -->
+      <section id="projects" class="section">
+        <div class="container">
+          <p class="section-eyebrow" data-i18n="projects.eyebrow">03 — Work</p>
+          <h2 class="section-title load-hidden" data-i18n="projects.title">
+            Selected projects
+          </h2>
+
+          <!-- Notice: each .bento-card is a project; the first one is featured (bigger) -->
+          <div class="bento">
+            <article class="bento-card bento-card--featured load-hidden">
+              <a
+                class="bento-card__media"
+                rel="noreferrer"
+                href="#!"
+                target="_blank"
+              >
+                <img alt="Project Title 0 preview" src="assets/project.webp" />
+              </a>
+              <div class="bento-card__body">
+                <span class="bento-card__index">01</span>
+                <h3 class="bento-card__title">Project Title 0</h3>
+                <p class="bento-card__text" data-i18n="projects.p0.text">
+                  Describe the project in under 280 characters: the problem, the
+                  skills you learned or reinforced, and how you approached the
+                  solution.
+                </p>
+                <ul class="chips chips--sm">
+                  <li>Laravel</li>
+                  <li>VueJS</li>
+                </ul>
+                <div class="bento-card__links">
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    class="btn btn--primary btn--sm"
+                    href="#!"
+                    data-i18n="projects.live"
+                    >See Live</a
+                  >
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    class="link-arrow"
+                    href="#!"
+                    data-i18n="projects.source"
+                    >Source Code</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="bento-card load-hidden">
+              <a
+                class="bento-card__media"
+                rel="noreferrer"
+                href="#!"
+                target="_blank"
+              >
+                <img alt="Project Title 1 preview" src="assets/project.webp" />
+              </a>
+              <div class="bento-card__body">
+                <span class="bento-card__index">02</span>
+                <h3 class="bento-card__title">Project Title 1</h3>
+                <p class="bento-card__text" data-i18n="projects.p1.text">
+                  Show commitment and perseverance. You are selling yourself,
+                  not the project: mention the frameworks and platforms used.
+                </p>
+                <div class="bento-card__links">
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    class="btn btn--primary btn--sm"
+                    href="#!"
+                    data-i18n="projects.live"
+                    >See Live</a
+                  >
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    class="link-arrow"
+                    href="#!"
+                    data-i18n="projects.source"
+                    >Source Code</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="bento-card load-hidden">
+              <a
+                class="bento-card__media"
+                rel="noreferrer"
+                href="#!"
+                target="_blank"
+              >
+                <img alt="Project Title 2 preview" src="assets/project.webp" />
+              </a>
+              <div class="bento-card__body">
+                <span class="bento-card__index">03</span>
+                <h3 class="bento-card__title">Project Title 2</h3>
+                <p class="bento-card__text" data-i18n="projects.p2.text">
+                  If it was a team effort, say so: it shows communication and
+                  leadership skills.
+                </p>
+                <div class="bento-card__links">
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    class="btn btn--primary btn--sm"
+                    href="#!"
+                    data-i18n="projects.live"
+                    >See Live</a
+                  >
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    class="link-arrow"
+                    href="#!"
+                    data-i18n="projects.source"
+                    >Source Code</a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
-      </div>
-    </section>
-    <!-- /END Contact Section -->
+      </section>
+      <!-- /END Projects Section -->
+
+      <!-- **** Contact Section **** -->
+      <section id="contact" class="section">
+        <div class="contact__bg" aria-hidden="true">
+          <span class="blob blob--1"></span>
+          <span class="blob blob--2"></span>
+        </div>
+        <div class="container">
+          <div class="contact-card load-hidden">
+            <p class="section-eyebrow" data-i18n="contact.eyebrow">
+              04 — Contact
+            </p>
+            <h2 class="contact-card__title" data-i18n-html="contact.title">
+              Let's build something <span class="text-gradient">great</span>
+              together.
+            </h2>
+            <p class="contact-card__text" data-i18n="contact.text">
+              [Put your call to action here]
+            </p>
+            <a
+              rel="noreferrer"
+              class="btn btn--primary btn--lg"
+              href="mailto:example@email.com"
+            >
+              <span data-i18n="contact.cta">Say hello</span>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- /END Contact Section -->
+    </main>
 
     <!-- **** Footer Section **** -->
-    <footer class="footer navbar-static-bottom">
-      <div class="container">
-        <a rel="noreferrer" href="#top" class="back-to-top">
-          <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
-        </a>
-        <div class="social-links">
-          <a rel="noreferrer" href="#!" target="_blank">
-            <i class="fa fa-twitter fa-inverse"></i>
-          </a>
-          <a rel="noreferrer" href="https://www.linkedin.com/in/phunguyen4869" target="_blank">
-            <i class="fa fa-linkedin fa-inverse"></i>
-          </a>
-          <a rel="noreferrer" href="https://github.com/phunguyen4869" target="_blank">
-            <i class="fa fa-github fa-inverse"></i>
-          </a>
-        </div>
-
-        <hr />
-
-        <!-- Notice: if you want to give me some credit, it will be huge for me! if not, put your data on it -->
+    <footer class="footer">
+      <div class="container footer__inner">
         <p class="footer__text">
-          © 2021 - Template developed by
-          <a rel="noreferrer" href="https://github.com/cobiwave" target="_blank"
-            >Jacobo Martínez</a
-          >
+          © <span class="js-year">2026</span> Phú Nguyễn
         </p>
-
-        <!-- TO DO: remove this entire paragraph once you finish your portfolio -->
-        <p class="mt-3 pt-3">
+        <div class="social-links">
           <a
             rel="noreferrer"
-            class="github-button"
-            href="https://github.com/cobiwave/simplefolio/fork"
-            data-icon="octicon-repo-forked"
-            data-size="large"
-            data-show-count="true"
-            aria-label="Fork ntkme/github-buttons on GitHub"
-            >Fork</a
+            href="https://github.com/phunguyen4869"
+            target="_blank"
+            aria-label="GitHub"
           >
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="icon--fill">
+              <path
+                d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.370-3.880-1.370-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.770 1.190 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"
+              />
+            </svg>
+          </a>
           <a
-            rel="noreferrer" 
-            class="github-button"
-            href="https://github.com/cobiwave/simplefolio"
-            data-icon="octicon-star"
-            data-size="large"
-            data-show-count="true"
-            aria-label="Star cobiwave/simplefolio on GitHub"
-            >Star</a
+            rel="noreferrer"
+            href="https://www.linkedin.com/in/phunguyen4869"
+            target="_blank"
+            aria-label="LinkedIn"
           >
-        </p>
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="icon--fill">
+              <path
+                d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.430a2.06 2.06 0 1 1 0-4.130 2.06 2.06 0 0 1 0 4.130zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"
+              />
+            </svg>
+          </a>
+          <a rel="noreferrer" href="mailto:example@email.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="m3 7 9 6 9-6" />
+            </svg>
+          </a>
+        </div>
       </div>
     </footer>
     <!-- /END Footer Section -->

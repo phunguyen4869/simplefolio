@@ -1,5 +1,13 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 8rem;
 
   &.sr .load-hidden {
     visibility: hidden;
@@ -7,22 +15,63 @@ html {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
-  text-align: center;
-  scroll-behavior: smooth;
+  margin: 0;
+  font-family: $font-body;
+  font-size: $default-font-size;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+::selection {
+  background: rgba($primary-color, 0.3);
+}
+
+:focus-visible {
+  outline: 2px solid $primary-color;
+  outline-offset: 3px;
+  border-radius: 0.6rem;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
-  height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: $light-grey;
+  background: var(--border);
+  border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: $primary-color;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

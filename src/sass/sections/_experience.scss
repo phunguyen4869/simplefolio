@@ -1,0 +1,163 @@
+// Desktop: [period] [rail + dot] [card], so dates read down the left like a
+// résumé. Tablets and phones: rail on the left, period above each card.
+$meta-width: 15rem;
+$rail-gap: 5.6rem;
+$dot-size: 1.6rem;
+$dot-top: 3.4rem; // lines the dot up with the role title
+
+#experience {
+  .timeline {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: $dot-top;
+      bottom: 0;
+      left: calc(#{$meta-width} + #{$rail-gap} / 2 - 1px);
+      width: 2px;
+      border-radius: 2px;
+      background: linear-gradient(
+        to bottom,
+        $primary-color,
+        $secondary-color 70%,
+        transparent
+      );
+      opacity: 0.5;
+    }
+
+    @include respond(tab-port-sm) {
+      padding-left: 3.2rem;
+
+      &::before {
+        top: 1.6rem;
+        left: 0.7rem;
+      }
+    }
+  }
+
+  .timeline__item {
+    position: relative;
+    display: grid;
+    grid-template-columns: $meta-width $rail-gap 1fr;
+    align-items: start;
+
+    & + .timeline__item {
+      margin-top: 3.2rem;
+    }
+
+    @include respond(tab-port-sm) {
+      display: block;
+    }
+  }
+
+  .timeline__meta {
+    padding-top: calc(#{$dot-top} - 1.2rem);
+    text-align: right;
+
+    @include respond(tab-port-sm) {
+      padding-top: 0;
+      margin-bottom: 1.2rem;
+      text-align: left;
+    }
+  }
+
+  .timeline__period {
+    display: inline-block;
+    padding: 0.5rem 1.4rem;
+    border-radius: 999px;
+    font-family: $font-display;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+    color: var(--text);
+    @include glass;
+  }
+
+  .timeline__dot {
+    position: relative;
+    justify-self: center;
+    width: $dot-size;
+    height: $dot-size;
+    margin-top: calc(#{$dot-top} - #{$dot-size} / 2);
+    border-radius: 50%;
+    background: $gradient;
+    box-shadow:
+      0 0 0 0.4rem var(--bg),
+      0 0 2rem rgba($primary-color, 0.6);
+
+    // Phones: pin the dot to the rail, level with the period pill
+    @include respond(tab-port-sm) {
+      position: absolute;
+      top: 0.9rem;
+      left: -3.2rem;
+      margin: 0;
+    }
+
+    &--current::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: $primary-color;
+      animation: ping 1.8s $ease-out infinite;
+    }
+  }
+
+  .timeline__card {
+    @include liquid-glass(8px);
+    padding: 2.8rem 3.2rem;
+    border-radius: $radius-lg;
+    transition: transform 0.5s $ease-out;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+
+    @include respond(phone) {
+      padding: 2.2rem 2rem;
+    }
+  }
+
+  .timeline__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 1.2rem;
+    row-gap: 0.4rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .timeline__role {
+    font-size: 2.2rem;
+
+    @include respond(phone) {
+      font-size: 2rem;
+    }
+  }
+
+  .timeline__company {
+    margin: 0;
+    font-weight: 600;
+    color: $primary-color;
+
+    // "@ Company" on one line with the role when it fits
+    &::before {
+      content: "@ ";
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+  }
+
+  .timeline__text {
+    color: var(--text-muted);
+  }
+
+  .chips {
+    margin-bottom: 0;
+  }
+}

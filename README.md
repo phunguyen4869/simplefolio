@@ -1,55 +1,40 @@
-# Simplefolio ⚡️
+# Phú Nguyễn — Portfolio ⚡️
 
-[Tiếng Việt](README.vi.md) [![GitHub](https://img.shields.io/github/license/cobiwave/simplefolio?color=blue)](https://github.com/cobiwave/simplefolio/blob/master/LICENSE.md) ![GitHub stars](https://img.shields.io/github/stars/cobiwave/simplefolio) ![GitHub forks](https://img.shields.io/github/forks/cobiwave/simplefolio)
+[Tiếng Việt](README.vi.md) · [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE.md)
 
-## A minimal portfolio template for Developers!
+Personal portfolio of **Phú Nguyễn**, Senior Full Stack Developer. A one-page static site built with Parcel, Sass and vanilla JavaScript, based on the [Simplefolio](https://github.com/cobiwave/simplefolio) template by Jacobo Martínez.
 
-<h2 align="center">
-  <img src="https://github.com/cobiwave/gatsby-simplefolio/blob/master/examples/example.gif" alt="Simplefolio" width="600px" />
-  <br>
-</h2>
+<p align="center">
+  <img src="src/assets/og-image.png" alt="Portfolio preview" width="720" />
+</p>
 
 ## Features
 
-⚡️ Modern UI Design + Reveal Animations\
-⚡️ One Page Layout\
-⚡️ Styled with Bootstrap v5 + Custom SCSS\
-⚡️ Fully Responsive\
-⚡️ Valid HTML5 & CSS3\
-⚡️ Optimized with Parcel\
-⚡️ Well organized documentation
+- **Liquid glass UI** inspired by Apple's iOS 26: frosted, saturated glass with a specular rim on the navbar, buttons, chips and cards.
+- **Edge refraction** (Chromium): each glass surface bends the page behind it near its edges. Other browsers get the frosted glass without the bend.
+- **Press feedback**: buttons, icons and the navbar swell and spring back when pressed.
+- **Dark and light themes**: follows the system setting, with a toggle that remembers the visitor's choice.
+- **English / Vietnamese**: one button switches all copy, the page title and the meta description. English is the default.
+- **Mobile tab bar**: on phones the navigation moves to a glass tab bar at the bottom, within thumb reach.
+- **Sections**: Hero, About, Experience timeline, Projects bento grid, Contact.
+- **SEO and sharing**: meta description and keywords in both languages, Open Graph and Twitter card tags with a 1200×630 preview image for Facebook, Zalo and others.
+- **Light assets**: WebP images, no CSS framework, about 27 kB of CSS and 9 kB of JS after build.
+- Respects `prefers-reduced-motion`.
 
-To view the demo: **[click here](https://the-simplefolio.netlify.app/)**
+## Getting started 🚀
 
----
+You need [Node.js](https://nodejs.org/) 18 or newer (22 LTS recommended) and npm.
 
-## Why do you need a portfolio? ☝️
-
-- Professional way to showcase your work
-- Increases your visibility and online presence
-- Shows you’re more than just a resume
-
-## Getting Started 🚀
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites 📋
-
-You'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [NPM](http://npmjs.com)) installed on your computer.
-
-```
-node@v18 or higher (recommended: v22 LTS)
-npm@9 or higher
-git@2.30.1 or higher
+```bash
+npm install
+npm start
 ```
 
-Also, you can use [Yarn](https://yarnpkg.com/) instead of NPM ☝️
+Open `http://localhost:1234/`.
 
-```
-yarn@v1.22.10 or higher
-```
+### Docker
 
-Or run with Docker (no host Node required):
+No Node needed on the host:
 
 ```bash
 docker compose up --build
@@ -57,317 +42,83 @@ docker compose up --build
 
 Open `http://localhost:4869/`. Stop with `docker compose down`.
 
-Docker is a dev server, not a second app:
-
 - Compose publishes `4869:4869`. The container runs Parcel with `--host 0.0.0.0 --port 4869`.
 - `npm start` on the host still uses port 1234. Do not open 1234 for the Docker run.
 - The repo is bind-mounted at `/app`. An anonymous volume keeps container `node_modules` off the host tree.
 - `CHOKIDAR_USEPOLLING=true` is set so file saves reload through the bind mount.
 
----
-
-## How To Use 🔧
-
-From your command line, first clone Simplefolio:
+### Build
 
 ```bash
-# Clone the repository
-$ git clone https://github.com/cobiwave/simplefolio
-
-# Move into the repository
-$ cd simplefolio
-
-# Remove the current origin repository
-$ git remote remove origin
+npm run build
 ```
 
-After that, you can install the dependencies either using NPM or Yarn.
+Output goes to `dist/`. The build also copies `og-image.png` to the root of `dist/`, so the Open Graph link has a stable URL.
 
-Using NPM: Simply run the below commands.
+> If the dev server keeps serving old code after an edit, stop it, delete `.parcel-cache/` and start it again.
 
-```bash
-# Install dependencies
-$ npm install
+## Editing the content 🔧
 
-# Start the development server
-$ npm start
-```
+| What | Where |
+|------|-------|
+| English copy, links, projects, jobs | `src/index.html` |
+| Vietnamese copy | `src/data/translations.js` |
+| Page title, description, keywords, Open Graph | `<head>` of `src/index.html` (Vietnamese title and description: `meta.*` keys in `translations.js`) |
+| Photo, project images, résumé | `src/assets/` (`profile.webp`, `project.webp`, `resume.pdf`) |
+| Colors and theme tokens | `src/sass/abstracts/_variables.scss` |
+| Scroll animations | `src/data/scrollRevealConfig.js` |
 
-Using Yarn: Be aware of that you'll need to delete the `package-lock.json` file before executing the below commands.
+### Translations
 
-```bash
-# Install dependencies
-$ yarn
+Every translatable element has a key:
 
-# Start the development server
-$ yarn start
-```
+- `data-i18n="key"`: plain text.
+- `data-i18n-html="key"`: text with markup, such as the gradient name in the hero.
+- `data-i18n-content="key"`: the `content` attribute of a `<meta>` tag.
 
-**NOTE**:
-If your run into issues installing the dependencies with NPM, use this below command:
+The English text stays in the HTML. Add the Vietnamese text under the same key in `src/data/translations.js`. When you change copy, change both places.
 
-```bash
-# Install dependencies with all permissions
-$ sudo npm install --unsafe-perm=true --allow-root
-```
+### Experience
 
-Once your server has started, go to this url `http://localhost:1234/` to see the portfolio locally. It should look like the below screenshot.
+Each job is an `<li class="timeline__item">` inside `<ol class="timeline">`, newest first. The current job's dot uses `timeline__dot--current` to pulse.
 
-<h2 align="center">
-  <img src="https://github.com/cobiwave/gatsby-simplefolio/blob/master/examples/example.png" alt="Simplefolio" width="100%">
-</h2>
+### Projects
 
----
+Each project is an `<article class="bento-card">` inside `<div class="bento">`. The first card has `bento-card--featured` and takes the large tile. Cards stack into two columns on tablets and one on phones.
 
-## Template Instructions:
+### Colors
 
-### Step 1 - STRUCTURE
+Change `$primary-color` and `$secondary-color` in `_variables.scss` to set the brand gradient. Theme colors (background, text, glass tint) are CSS custom properties in the `theme-dark` and `theme-light` mixins in the same file.
 
-Go to `/src/index.html` and put your information, there are 5 sections:
+### Liquid glass
 
-### (1) Hero Section
+- Styles: the `liquid-glass` mixin in `src/sass/abstracts/_mixins.scss`. Use `@include liquid-glass($blur, $shadow)` on any element to turn it into glass.
+- Refraction and press effect: `src/scripts/liquidGlass.js`. Add a selector to `SELECTOR` to give an element edge refraction, and to `PRESSABLE` to make it swell when pressed.
 
-- On `.hero-title`, put your custom portfolio title.
-- On `.hero-cta`, put your custom button label.
+### Sharing preview
 
-```html
-<!-- **** Hero Section **** -->
-<section id="hero" class="jumbotron">
-  <div class="container">
-    <h1 class="hero-title load-hidden">
-      Hi, my name is <span class="text-color-main">Your Name</span>
-      <br />
-      I'm the Unknown Developer.
-    </h1>
-    <p class="hero-cta load-hidden">
-      <a rel="noreferrer" class="cta-btn cta-btn--hero" href="#about">
-        Know more
-      </a>
-    </p>
-  </div>
-</section>
-<!-- /END Hero Section -->
-```
+`src/assets/og-image.png` is the image shown when the link is shared. It is 1200×630. If you replace it, keep that size.
 
-### (2) About Section
+The `og:url`, `og:image` and `canonical` tags point to `https://phunguyen4869.github.io/simplefolio/`. If the site is hosted elsewhere, update those three URLs. Facebook and Zalo need absolute URLs.
 
-- On `<img>` tag, fill the `src` property with your profile picture path, your picture must be located inside `/src/assets/` folder.
-- On `<p>` tag with class name `.about-wrapper__info-text`, include information about you, I recommend to put 2 paragraphs in order to work well and a maximum of 3 paragraphs.
-- On last `<a>` tag, include your CV (.pdf) path on `href` property, your resume CV must be located inside `/src/assets/` folder.
-
-```html
-<!-- **** About Section **** -->
-<section id="about">
-  <div class="container">
-    <h2 class="section-title load-hidden">About me</h2>
-    <div class="row about-wrapper">
-      <div class="col-md-6 col-sm-12">
-        <div class="about-wrapper__image load-hidden">
-          <img
-            alt="Profile Image"
-            class="img-fluid rounded shadow-lg"
-            height="auto"
-            width="300px"
-            src="assets/profile.jpg"
-            alt="Profile Image"
-          />
-        </div>
-      </div>
-      <div class="col-md-6 col-sm-12">
-        <div class="about-wrapper__info load-hidden">
-          <p class="about-wrapper__info-text">
-            This is where you can describe about yourself. The more you describe
-            about yourself, the more chances you can!
-          </p>
-          <p class="about-wrapper__info-text">
-            Extra Information about you! like hobbies and your goals.
-          </p>
-          <span class="d-flex mt-3">
-            <a
-              rel="noreferrer"
-              target="_blank"
-              class="cta-btn cta-btn--resume"
-              href="assets/resume.pdf"
-            >
-              View Resume
-            </a>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- /END About Section -->
-```
-
-### (3) Projects Section
-
-- Each project lives inside a `row`.
-- On `<h3>` tag with class name `.project-wrapper__text-title`, include your project title.
-- On `<p>` tag with `loremp ipsum` text, include your project description.
-- On first `<a>` tag, put your project url on `href` property.
-- On second `<a>` tag, put your project repository url on `href` property.
-
----
-
-- Inside `<div>` tag with class name `.project-wrapper__image`, put your project image url on the `src` of the `<img>` and put again your project url in the `href` property of the `<a>` tag.
-- Recommended size for project image (1366 x 767), your project image must be located inside `/src/assets/` folder.
-
-```html
-<!-- **** Projects Section **** -->
-<section id="projects">
-  ...
-  <!-- Notice: each .row is a project -->
-  <div class="row">
-    <div class="col-lg-4 col-sm-12">
-      <div class="project-wrapper__text load-hidden">
-        <h3 class="project-wrapper__text-title">Project Title</h3>
-        <div>
-          <p class="mb-4">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi
-            neque, ipsa animi maiores repellendus distinctio aperiam earum dolor
-            voluptatum consequatur blanditiis inventore debitis fuga numquam
-            voluptate ex architecto itaque molestiae.
-          </p>
-        </div>
-        <a
-          rel="noreferrer"
-          target="_blank"
-          class="cta-btn cta-btn--hero"
-          href="#!"
-        >
-          See Live
-        </a>
-        <a
-          rel="noreferrer"
-          target="_blank"
-          class="cta-btn text-color-main"
-          href="#!"
-        >
-          Source Code
-        </a>
-      </div>
-    </div>
-    <div class="col-lg-8 col-sm-12">
-      <div class="project-wrapper__image load-hidden">
-        <a rel="noreferrer" href="#!" target="_blank">
-          <div
-            data-tilt
-            data-tilt-max="4"
-            data-tilt-glare="true"
-            data-tilt-max-glare="0.5"
-            class="thumbnail rounded js-tilt"
-          >
-            <img
-              alt="Project Image"
-              class="img-fluid"
-              src="assets/project.jpg"
-            />
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-  <!-- /END Project -->
-  ...
-</section>
-```
-
-### (4) Contact Section
-
-- On `<p>` tag with class name `.contact-wrapper__text`, include some custom call-to-action message.
-- On `<a>` tag, put your email address on `href` property.
-
-```html
-<!-- **** Contact Section **** -->
-<section id="contact">
-  <div class="container">
-    <h2 class="section-title">Contact</h2>
-    <div class="contact-wrapper load-hidden">
-      <p class="contact-wrapper__text">[Put your call to action here]</p>
-      <a
-        rel="noreferrer"
-        target="_blank"
-        class="cta-btn cta-btn--resume"
-        href="mailto:example@email.com"
-        >Call to Action</a
-      >
-    </div>
-  </div>
-</section>
-<!-- /END Contact Section -->
-```
-
-### (5) Footer Section
-
-- Put your Social Media URL on each `href` attribute of the `<a>` tags.
-- If you an additional Social Media account different than Twitter, Linkedin or GitHub, then go to [Font Awesome Icons](https://fontawesome.com/v4.7.0/icons/) and search for the icon's class name you are looking.
-- You can delete or add as many `<a>` tags your want.
-
-```html
-<footer class="footer navbar-static-bottom">
-  ...
-  <div class="social-links">
-    <a href="#!" target="_blank">
-      <i class="fa fa-twitter fa-inverse"></i>
-    </a>
-    <a href="#!" target="_blank">
-      <i class="fa fa-linkedin fa-inverse"></i>
-    </a>
-    <a href="#!" target="_blank">
-      <i class="fa fa-github fa-inverse"></i>
-    </a>
-  </div>
-  ...
-</footer>
-```
-
-### Step 2 - STYLES
-
-Change the color theme of the website - (choose 2 colors to create a gradient)
-
-Go to `/src/sass/abstracts/_variables.scss` and only change the values for this variables `$main-color` and `$secondary-color` with your prefered HEX color.
-If you want to get some gradients inspiration I highly recommend you to check this website [UI Gradient](https://uigradients.com/#BrightVault)
-
-```scss
-// Default values
-$main-color: #02aab0;
-$secondary-color: #00cdac;
-```
-
----
+After deploying, check the preview with the [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/). It also refreshes Facebook's cache.
 
 ## Deployment 📦
 
-Once you finish your setup. You need to put your website online!
+`.github/workflows/gh-pages.yml` builds the site and publishes `dist/` to GitHub Pages. You can also upload `dist/` to Netlify, Vercel or any static host.
 
-I highly recommend to use [Netlify](https://netlify.com) because it is super easy.
+## Built with 🛠️
 
-## Others versions 👥
+- [Parcel](https://parceljs.org/): bundler
+- [Sass](https://sass-lang.com/documentation): styles
+- [ScrollReveal](https://scrollrevealjs.org/): reveal animations
+- SVG filters and `backdrop-filter`: liquid glass refraction
 
-[Gatsby Simplefolio](https://github.com/cobiwave/gatsby-simplefolio) by [Jacobo Martinez](https://github.com/cobiwave)\
-[Ember.js Simplefolio](https://github.com/sernadesigns/simplefolio-ember) by [Michael Serna](https://github.com/sernadesigns)
+## Credits
 
-## Technologies used 🛠️
-
-- [Parcel](https://parceljs.org/) - Bundler
-- [Bootstrap 5](https://getbootstrap.com/docs/5.3/getting-started/introduction/) - Frontend component library
-- [Sass](https://sass-lang.com/documentation) - CSS extension language
-- [ScrollReveal.js](https://scrollrevealjs.org/) - JavaScript library
-- [Vanilla Tilt](https://micku7zu.github.io/vanilla-tilt.js/) - JavaScript tiny parallax library
-
-## Authors
-
-- **Jacobo Martinez** - [https://github.com/cobiwave](https://github.com/cobiwave)
-
-## Status
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/3a029bfd-575c-41e5-8249-c864d482c2e5/deploy-status)](https://app.netlify.com/sites/the-simplefolio/deploys)
+- Original template: [Simplefolio](https://github.com/cobiwave/simplefolio) by [Jacobo Martínez](https://github.com/cobiwave)
+- Portfolio and redesign: [Phú Nguyễn](https://github.com/phunguyen4869)
 
 ## License 📄
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments 🎁
-
-I was motivated to create this project because I wanted to contribute on something useful for the dev community, thanks to [ZTM Community](https://github.com/zero-to-mastery) and [Andrei](https://github.com/aneagoie)
+MIT. See [LICENSE.md](LICENSE.md).

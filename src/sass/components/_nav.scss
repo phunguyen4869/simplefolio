@@ -1,0 +1,224 @@
+// Desktop: one floating capsule at the top (logo, links, actions).
+// Phones: the capsule dissolves (display: contents) and its parts float on
+// their own — logo and actions at the top, links as an iOS tab bar at the
+// bottom within thumb reach. The capsule must not keep a backdrop-filter or
+// transform there, or it would trap the fixed tab bar inside it.
+.nav {
+  position: fixed;
+  top: 1.6rem;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  padding: 0 1.6rem;
+  pointer-events: none;
+
+  @include respond(phone) {
+    top: calc(1.2rem + env(safe-area-inset-top));
+    justify-content: space-between;
+  }
+
+  &__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    padding: 0.6rem 0.6rem 0.6rem 2rem;
+    border-radius: 999px;
+    pointer-events: auto;
+    transition:
+      transform 0.5s $ease-out,
+      box-shadow 0.5s $ease-out;
+    @include liquid-glass(4px);
+
+    @include respond(phone) {
+      display: contents;
+
+      // Pseudo-elements still render under display: contents
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &.is-scrolled &__inner {
+    transform: scale(0.97);
+  }
+
+  // Pressing anywhere on the capsule makes it swell like a drop of glass
+  &__inner.is-pressed,
+  &.is-scrolled &__inner.is-pressed {
+    transform: scale(1.03);
+    transition-timing-function: $ease-spring;
+  }
+
+  &__logo {
+    font-family: $font-display;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+
+    @include respond(phone) {
+      display: grid;
+      place-items: center;
+      width: 4.8rem;
+      height: 4.8rem;
+      border-radius: 50%;
+      font-size: 1.8rem;
+      pointer-events: auto;
+      @include liquid-glass(4px);
+    }
+  }
+
+  &__links {
+    position: relative;
+    display: flex;
+
+    a {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      padding: 0.8rem 1.6rem;
+      border-radius: 999px;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.3s;
+      -webkit-tap-highlight-color: transparent;
+
+      &:hover,
+      &.is-active {
+        color: var(--text);
+      }
+    }
+
+    .icon {
+      display: none;
+    }
+
+    // Phones: bottom tab bar, icon above label
+    @include respond(phone) {
+      // After the mixin, which sets position: relative
+      @include liquid-glass(4px);
+      position: fixed;
+      left: 1.6rem;
+      right: 1.6rem;
+      bottom: calc(1.2rem + env(safe-area-inset-bottom));
+      padding: 0.5rem;
+      border-radius: 999px;
+      pointer-events: auto;
+      transition: transform 0.5s $ease-spring;
+
+      &.is-pressed {
+        transform: scale(1.03);
+      }
+
+      a {
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.2rem;
+        min-width: 0;
+        padding: 0.7rem 0.4rem;
+        font-size: 1.05rem;
+        font-weight: 600;
+        line-height: 1.2;
+        white-space: nowrap;
+
+        &.is-active {
+          color: $primary-color;
+        }
+      }
+
+      .icon {
+        display: block;
+        width: 2.2rem;
+        height: 2.2rem;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 0.2rem;
+
+    @include respond(phone) {
+      padding: 0.4rem;
+      border-radius: 999px;
+      pointer-events: auto;
+      @include liquid-glass(4px);
+    }
+  }
+
+  .lang-btn {
+    font-family: $font-display;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  // Glass droplet that glides under the hovered / active link
+  &__indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 999px;
+    background: var(--glass-pill);
+    box-shadow:
+      inset 0 1px 0 var(--glass-shine),
+      0 0.4rem 1.2rem rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    transition:
+      transform 0.5s cubic-bezier(0.34, 1.4, 0.64, 1),
+      width 0.5s cubic-bezier(0.34, 1.4, 0.64, 1),
+      opacity 0.3s;
+
+    @include respond(phone) {
+      top: 0.5rem;
+      height: calc(100% - 1rem);
+    }
+  }
+
+  .icon-btn {
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    &::after {
+      display: none;
+    }
+
+    &:hover {
+      background: var(--glass-pill);
+    }
+  }
+}
+
+// Show the icon for the theme you would switch to
+.icon--moon {
+  display: none;
+}
+
+@mixin show-moon {
+  .icon--sun {
+    display: none;
+  }
+  .icon--moon {
+    display: block;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    @include show-moon;
+  }
+}
+
+:root[data-theme="light"] {
+  @include show-moon;
+}

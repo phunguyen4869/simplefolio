@@ -5,12 +5,12 @@
 - Docker is a dev convenience. Production path is `npm run build` → `dist/` → GitHub Pages.
 
 ## Coding
-- Match existing style: small JS modules, SCSS partials, Bootstrap classes in HTML.
-- No new dependency for a task that stdlib, Parcel, or Bootstrap already covers.
+- Match existing style: small JS modules, SCSS partials, BEM-style classes in HTML. No CSS framework.
+- No new dependency for a task that the platform or Parcel already covers.
 - Prettier is installed (`.prettierrc` is `{}`). Format touched files; do not add ESLint unless requested.
 
 ## Comments
-- Good: one line on a non-obvious constraint (`// Lazy so tilt failure cannot block ScrollReveal`).
+- Good: one line on a non-obvious constraint (`// Pseudo-elements still render under display: contents`).
 - Bad: comments that restate the next line.
 
 ## Versioning
@@ -32,5 +32,5 @@
 
 ## Stack-specific
 - Parcel 2: entry is `package.json` `"source": "src/index.html"`.
-- Bootstrap Sass: import via `src/sass/vendors/_bootstrap.scss` only.
+- Copy: English in `src/index.html`, Vietnamese in `src/data/translations.js` under the same `data-i18n*` key.
 - Docker: container port 4869, host port 4869. Do not document port 1234 as the Docker URL.

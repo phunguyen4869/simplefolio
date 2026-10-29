@@ -1,15 +1,69 @@
-// COLORS
-$primary-color: #02aab0;
-$secondary-color: #00cdac;
+// BRAND
+$primary-color: #00cdac;
+$secondary-color: #7c5cff;
+$gradient: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
 
-$white-color: #fff;
+// FONTS
+$font-body: "Inter", system-ui, -apple-system, sans-serif;
+$font-display: "Space Grotesk", $font-body;
 
-$dark-grey: #333333;
-$light-grey: #d2d2d2;
-
-$dark-blue-text: #272341; // For Headings
-
-// FONT SIZE
+// FONT SIZE (1rem = 10px)
 $default-font-size: 1.6rem;
-$big-font-size: 4rem;
-$mid-font-size: 2.5rem;
+$mid-font-size: 2.4rem;
+$big-font-size: clamp(3.2rem, 5vw, 4.8rem);
+
+// LAYOUT
+$container-width: 112rem;
+$radius: 1.6rem;
+$radius-lg: 2.4rem;
+$ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+$ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+// THEME TOKENS (dark is the default)
+@mixin theme-dark {
+  --bg: #0a0b10;
+  --bg-elevated: #12141c;
+  --surface: rgba(255, 255, 255, 0.04);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #eef0f6;
+  --text-muted: #9aa0b4;
+  --glass-tint: rgba(18, 20, 28, 0.45);
+  --glass-edge: rgba(255, 255, 255, 0.22);
+  --glass-shine: rgba(255, 255, 255, 0.35);
+  --glass-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.45);
+  --glass-pill: rgba(255, 255, 255, 0.12);
+  --glass-edge-dim: rgba(255, 255, 255, 0.08);
+  --blob-opacity: 0.55;
+  --shadow: 0 2rem 6rem rgba(0, 0, 0, 0.45);
+}
+
+@mixin theme-light {
+  --bg: #f7f8fb;
+  --bg-elevated: #ffffff;
+  --surface: rgba(15, 18, 30, 0.03);
+  --border: rgba(15, 18, 30, 0.08);
+  --text: #12141c;
+  --text-muted: #5b6275;
+  --glass-tint: rgba(255, 255, 255, 0.45);
+  --glass-edge: rgba(255, 255, 255, 0.9);
+  --glass-shine: rgba(255, 255, 255, 1);
+  --glass-shadow: 0 1rem 4rem rgba(20, 24, 40, 0.14);
+  --glass-pill: rgba(255, 255, 255, 0.85);
+  --glass-edge-dim: rgba(15, 18, 30, 0.1);
+  --blob-opacity: 0.35;
+  --shadow: 0 2rem 5rem rgba(20, 24, 40, 0.12);
+}
+
+:root {
+  @include theme-dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    @include theme-light;
+  }
+}
+
+:root[data-theme="light"] {
+  @include theme-light;
+}

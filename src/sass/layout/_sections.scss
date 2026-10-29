@@ -1,10 +1,8 @@
-// Section
-section {
-  padding: 5rem 0rem;
+.section {
+  position: relative;
+  padding: 12rem 0;
 
-  @include respond(phone) {
-    border: none;
-    padding-left: 1rem;
-    padding-right: 1rem;
+  @include respond(tab-port) {
+    padding: 8rem 0;
   }
 }
