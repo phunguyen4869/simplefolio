@@ -17,10 +17,10 @@ const SELECTOR = [
   ".badge",
   ".chips li",
   ".social-links a",
-  ".contact-card",
-  ".timeline__card",
   ".timeline__period",
-  ".bento-card",
+  // ponytail: big cards (.bento-card, .timeline__card, .contact-card) skip
+  // refraction; the filter repaints every scroll frame and its cost grows with
+  // area (~30fps on Projects). They keep the blur. Revisit if Chrome caches it.
 ].join(",");
 
 // Controls that swell when pressed, like glass under a fingertip
@@ -57,8 +57,12 @@ function displacementMap(w, h, r) {
 
       if (d < bezel) {
         // Outward normal from the SDF gradient
-        const nx = roundedRectSDF(x + 1, y, hw, hh, r) - roundedRectSDF(x - 1, y, hw, hh, r);
-        const ny = roundedRectSDF(x, y + 1, hw, hh, r) - roundedRectSDF(x, y - 1, hw, hh, r);
+        const nx =
+          roundedRectSDF(x + 1, y, hw, hh, r) -
+          roundedRectSDF(x - 1, y, hw, hh, r);
+        const ny =
+          roundedRectSDF(x, y + 1, hw, hh, r) -
+          roundedRectSDF(x, y - 1, hw, hh, r);
         const len = Math.hypot(nx, ny) || 1;
         const t = 1 - Math.max(d, 0) / bezel;
         const strength = t * t * (3 - 2 * t); // smoothstep: strongest at the rim
@@ -136,7 +140,11 @@ function initRefraction() {
     const w = Math.round(el.offsetWidth);
     const h = Math.round(el.offsetHeight);
     if (!w || !h) return;
-    const r = Math.min(parseFloat(getComputedStyle(el).borderRadius) || 0, h / 2, w / 2);
+    const r = Math.min(
+      parseFloat(getComputedStyle(el).borderRadius) || 0,
+      h / 2,
+      w / 2,
+    );
 
     let s = state.get(el);
     if (!s) {
@@ -166,7 +174,10 @@ function initRefraction() {
     image.setAttribute("href", mapFor(w, h, r));
     // Bend grows with the element, capped so big cards stay calm
     s.base = Math.min(Math.min(w, h) * 0.9, 56);
-    setBend(s, el.classList.contains("is-pressed") ? s.base * PRESS_BEND : s.base);
+    setBend(
+      s,
+      el.classList.contains("is-pressed") ? s.base * PRESS_BEND : s.base,
+    );
   };
 
   const setBend = (s, value) => {
