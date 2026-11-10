@@ -1,3 +1,6 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
 // Desktop: one floating capsule at the top (logo, links, actions).
 // Phones: the capsule dissolves (display: contents) and its parts float on
 // their own — logo and actions at the top, links as an iOS tab bar at the

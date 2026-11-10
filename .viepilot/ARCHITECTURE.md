@@ -21,7 +21,7 @@ Source: `.viepilot/architecture/system-overview.mermaid`
 User skipped UI workspace (2026-09-25). Assumptions, not a design spec:
 - One page: `src/index.html` (hero, about, projects, contact, footer).
 - Bootstrap 5 + custom SCSS under `src/sass/`. Do not replace the design system in ops/docs work.
-- Motion: ScrollReveal (eager) + vanilla-tilt (lazy, failure must not hide content).
+- Motion: reveal on scroll with IntersectionObserver + Web Animations (`src/scripts/scrollReveal.js`); content stays visible if scripts fail.
 
 ## Data flow
 N/A — no persisted data. Content is HTML + files in `src/assets/`.

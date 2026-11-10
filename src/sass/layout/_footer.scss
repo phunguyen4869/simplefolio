@@ -1,3 +1,6 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
 .footer {
   border-top: 1px solid var(--border);
   padding: 3.2rem 0;

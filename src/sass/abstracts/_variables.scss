@@ -2,10 +2,18 @@
 $primary-color: #00cdac;
 $secondary-color: #7c5cff;
 $gradient: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+// Deeper pair for surfaces with white text on them (primary button): the
+// brand colors are too light for 4.5:1 contrast
+$primary-strong: #007a66;
+$secondary-strong: #6646e6;
 
 // FONTS
-$font-body: "Inter", system-ui, -apple-system, sans-serif;
-$font-display: "Space Grotesk", $font-body;
+$font-body:
+  "Inter Variable",
+  system-ui,
+  -apple-system,
+  sans-serif;
+$font-display: "Space Grotesk Variable", $font-body;
 
 // FONT SIZE (1rem = 10px)
 $default-font-size: 1.6rem;

@@ -32,5 +32,5 @@
 
 ## Stack-specific
 - Parcel 2: entry is `package.json` `"source": "src/index.html"`.
-- Copy: English in `src/index.html`, Vietnamese in `src/data/translations.js` under the same `data-i18n*` key.
+- Copy: English in `src/index.html`, Vietnamese in `src/data/translations.mjs` under the same `data-i18n*` key.
 - Docker: container port 4869, host port 4869. Do not document port 1234 as the Docker URL.

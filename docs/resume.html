@@ -1,0 +1,271 @@
+<!doctype html>
+<!--
+  Source of src/assets/resume.pdf. Edit this file, then print it to PDF:
+  open it in a browser, Print, A4, margins "None", background graphics on,
+  and save over src/assets/resume.pdf.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Phú Nguyễn — Senior Full Stack Developer</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      :root {
+        --teal: #007a66;
+        --purple: #6646e6;
+        --text: #12141c;
+        --muted: #5b6275;
+        --line: #e3e6ee;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      body {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto;
+        padding: 18mm 18mm 16mm;
+        font:
+          10.5pt/1.55 system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        color: var(--text);
+        background: #fff;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      ul {
+        margin: 0;
+      }
+
+      header {
+        padding-bottom: 7mm;
+        border-bottom: 2px solid;
+        border-image: linear-gradient(90deg, var(--teal), var(--purple)) 1;
+      }
+
+      h1 {
+        font-size: 28pt;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+
+      .role {
+        margin-top: 2mm;
+        font-size: 13pt;
+        font-weight: 600;
+        color: var(--teal);
+      }
+
+      .contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1mm 6mm;
+        margin-top: 4mm;
+        padding: 0;
+        list-style: none;
+        font-size: 9.5pt;
+        color: var(--muted);
+      }
+
+      section {
+        margin-top: 8mm;
+      }
+
+      h2 {
+        margin-bottom: 3mm;
+        font-size: 9pt;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--purple);
+      }
+
+      .job + .job {
+        margin-top: 6mm;
+        padding-top: 6mm;
+        border-top: 1px solid var(--line);
+      }
+
+      .job__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 6mm;
+      }
+
+      h3 {
+        font-size: 12pt;
+      }
+
+      h3 span {
+        font-weight: 500;
+        color: var(--muted);
+      }
+
+      .period {
+        flex-shrink: 0;
+        font-size: 9.5pt;
+        font-weight: 600;
+        color: var(--muted);
+      }
+
+      .job ul {
+        margin-top: 2mm;
+        padding-left: 5mm;
+      }
+
+      .job li + li {
+        margin-top: 1mm;
+      }
+
+      .tech {
+        margin-top: 2.5mm;
+        font-size: 9.5pt;
+        color: var(--muted);
+      }
+
+      .tech strong {
+        color: var(--text);
+      }
+
+      .skills {
+        display: grid;
+        grid-template-columns: 34mm 1fr;
+        gap: 1.5mm 4mm;
+      }
+
+      .skills dt {
+        font-weight: 600;
+      }
+
+      .skills dd {
+        margin: 0;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Phú Nguyễn</h1>
+      <p class="role">Senior Full Stack Developer</p>
+      <ul class="contact">
+        <li>Ho Chi Minh City, Vietnam</li>
+        <li>
+          <a href="mailto:phunguyen4869@gmail.com">phunguyen4869@gmail.com</a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/phunguyen4869"
+            >linkedin.com/in/phunguyen4869</a
+          >
+        </li>
+        <li>
+          <a href="https://github.com/phunguyen4869"
+            >github.com/phunguyen4869</a
+          >
+        </li>
+        <li>
+          <a href="https://phunguyen4869.github.io/simplefolio/"
+            >phunguyen4869.github.io/simplefolio</a
+          >
+        </li>
+      </ul>
+    </header>
+
+    <section>
+      <h2>Profile</h2>
+      <p>
+        Full stack developer building web products with PHP, Laravel, VueJS,
+        Golang and AWS since 2022. Information Technology graduate of Ba Ria
+        Vung Tau University. I enjoy working in a team and keeping my core
+        technical skills sharp.
+      </p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+
+      <!-- Todo: add what you built at SmartGift and the impact it had -->
+      <div class="job">
+        <div class="job__head">
+          <h3>Fullstack Developer <span>· SmartGift Solution</span></h3>
+          <span class="period">2023 – Present</span>
+        </div>
+        <p class="tech">
+          <strong>Technologies:</strong> PHP, Laravel, CakePHP, VueJS, Golang,
+          PostgreSQL, Redis, AWS
+        </p>
+      </div>
+
+      <div class="job">
+        <div class="job__head">
+          <h3>Fullstack Developer <span>· BigIn JSC</span></h3>
+          <span class="period">2022 – 2023</span>
+        </div>
+        <ul>
+          <li>
+            Maintained, fixed and extended web applications with the team,
+            within an established architecture.
+          </li>
+          <li>
+            Relocation management platform: lets a relocation company manage its
+            transferees, vendors, clients and daily activities.
+          </li>
+          <li>
+            Moving rates marketplace: brings moving companies together so a
+            consumer can compare accurate rates by weight and distance.
+          </li>
+        </ul>
+        <p class="tech">
+          <strong>Technologies:</strong> PHP, Laravel, VueJS, jQuery,
+          PostgreSQL, MySQL, WordPress, GitLab
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <dl class="skills">
+        <dt>Backend</dt>
+        <dd>PHP (Laravel, CakePHP), Golang</dd>
+        <dt>Frontend</dt>
+        <dd>JavaScript (VueJS, jQuery)</dd>
+        <dt>Databases</dt>
+        <dd>PostgreSQL, MySQL, Redis</dd>
+        <dt>Cloud and tools</dt>
+        <dd>AWS, Docker, Git, GitLab</dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="job__head">
+        <h3>
+          Information Technology <span>· Ba Ria Vung Tau University</span>
+        </h3>
+        <span class="period">2017 – 2021</span>
+      </div>
+    </section>
+  </body>
+</html>

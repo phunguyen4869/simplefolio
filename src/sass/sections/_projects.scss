@@ -1,3 +1,6 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
 #projects {
   // Bento grid: the featured project is a wide tile on its own row, the rest
   // pair up below it. Keeps the big card from towering over the small ones.

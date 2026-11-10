@@ -1,10 +1,12 @@
+// Options are Web Animations timing options, plus:
+//   distance: how far (px) the element rises as it appears
+//   scale:    starting scale
+//   interval: extra delay (ms) for each next element of the same selector
+//   fade:     false to slide in without fading
 export const defaultProps = {
   easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-  distance: "24px",
+  distance: 24,
   duration: 900,
-  origin: "bottom",
-  desktop: true,
-  mobile: true,
 };
 
 export const targetElements = [
@@ -17,7 +19,16 @@ export const targetElements = [
   { element: ".about-wrapper__info", animation: { delay: 350 } },
   // Glass blocks slide in without fading: Chrome draws a square backdrop
   // artifact while a backdrop-filter element is semi-transparent.
-  { element: ".timeline__item", animation: { delay: 150, interval: 120, opacity: null } },
-  { element: ".bento-card", animation: { delay: 150, interval: 120, scale: 0.97, opacity: null } },
-  { element: ".contact-card", animation: { delay: 150, scale: 0.97, opacity: null } },
+  {
+    element: ".timeline__item",
+    animation: { delay: 150, interval: 120, fade: false },
+  },
+  {
+    element: ".bento-card",
+    animation: { delay: 150, interval: 120, scale: 0.97, fade: false },
+  },
+  {
+    element: ".contact-card",
+    animation: { delay: 150, scale: 0.97, fade: false },
+  },
 ];

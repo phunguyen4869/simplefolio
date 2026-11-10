@@ -60,6 +60,14 @@ function initIndicator(nav) {
     if (section) observer.observe(section);
   });
 
-  // Re-measure when labels change width (resize, language switch)
+  // Re-measure when the links change width (resize, fonts loading)
   new ResizeObserver(() => moveTo(active)).observe(list);
+
+  // The other language is a separate page: open it at the section being read
+  const languageLink = nav.querySelector(".js-lang-toggle");
+  if (languageLink) {
+    languageLink.addEventListener("click", () => {
+      languageLink.hash = active ? active.hash : "";
+    });
+  }
 }

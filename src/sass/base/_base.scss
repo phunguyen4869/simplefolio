@@ -1,3 +1,5 @@
+@use "../abstracts/variables" as *;
+
 *,
 *::before,
 *::after {
@@ -9,8 +11,12 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 8rem;
 
-  &.sr .load-hidden {
-    visibility: hidden;
+  // Hidden until scripts/scrollReveal.js animates them in. The inline script
+  // in <head> sets "js", so nothing is hidden when scripts are off or fail.
+  @media screen {
+    &.js .load-hidden {
+      visibility: hidden;
+    }
   }
 }
 

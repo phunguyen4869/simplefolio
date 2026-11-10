@@ -1,3 +1,6 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
 // Desktop: [period] [rail + dot] [card], so dates read down the left like a
 // résumé. Tablets and phones: rail on the left, period above each card.
 $meta-width: 15rem;

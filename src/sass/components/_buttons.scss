@@ -1,3 +1,6 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -38,10 +41,11 @@
   &--primary {
     color: #fff;
     @include liquid-glass(6px, 0 1rem 3rem -1rem rgba($secondary-color, 0.6));
+    // Opaque enough that white text keeps 4.5:1 even over a white backdrop
     background: linear-gradient(
       135deg,
-      rgba($primary-color, 0.85),
-      rgba($secondary-color, 0.85)
+      rgba($primary-strong, 0.92),
+      rgba($secondary-strong, 0.92)
     );
 
     &:hover {

@@ -26,6 +26,8 @@ const SELECTOR = [
 // Controls that swell when pressed, like glass under a fingertip
 const PRESSABLE = ".btn, .icon-btn, .social-links a, .nav__inner, .nav__links";
 const PRESS_BEND = 1.8; // refraction multiplier while pressed
+const MAX_MAPS = 48; // displacement maps kept in memory
+const RESIZE_SETTLE = 150; // ms without a size change before maps are redrawn
 
 const SVG_NS = "http://www.w3.org/2000/svg";
 
@@ -124,11 +126,15 @@ function initRefraction() {
   defs.style.position = "absolute";
   document.body.prepend(defs);
 
-  // Maps are costly to paint, so elements of the same shape share one
+  // Maps are costly to paint, so elements of the same shape share one. Only
+  // the newest shapes are kept: a window being resized goes through hundreds.
   const maps = new Map();
   const mapFor = (w, h, r) => {
     const key = `${w}x${h}r${r}`;
-    if (!maps.has(key)) maps.set(key, displacementMap(w, h, r));
+    if (!maps.has(key)) {
+      maps.set(key, displacementMap(w, h, r));
+      if (maps.size > MAX_MAPS) maps.delete(maps.keys().next().value);
+    }
     return maps.get(key);
   };
 
@@ -201,9 +207,22 @@ function initRefraction() {
     s.frame = requestAnimationFrame(step);
   };
 
-  const resizeObserver = new ResizeObserver((entries) =>
-    entries.forEach((entry) => apply(entry.target)),
-  );
+  // New elements get their map at once. Elements that are changing size wait
+  // until the size settles, so a resize does not repaint a map every frame.
+  const resized = new Set();
+  let settle = 0;
+  const resizeObserver = new ResizeObserver((entries) => {
+    entries.forEach(({ target }) => {
+      if (state.has(target)) resized.add(target);
+      else apply(target);
+    });
+    if (!resized.size) return;
+    clearTimeout(settle);
+    settle = setTimeout(() => {
+      resized.forEach(apply);
+      resized.clear();
+    }, RESIZE_SETTLE);
+  });
   // Follow the is-pressed class set by initPress
   const pressObserver = new MutationObserver((records) =>
     records.forEach(({ target }) =>

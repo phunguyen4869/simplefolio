@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 4869
 
-CMD ["npx", "parcel", "src/index.html", "--host", "0.0.0.0", "--port", "4869"]
+CMD ["npm", "start", "--", "--host", "0.0.0.0", "--port", "4869"]
