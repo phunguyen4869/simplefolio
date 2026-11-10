@@ -20,6 +20,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 - Self-hosted Inter and Space Grotesk (Fontsource); no request to Google Fonts
 - `npm run i18n`, `npm run format` and `npm run format:check`
 - Résumé source `docs/resume.html`
+- Share image source `docs/og-image.html`
 
 ### Changed
 - Profile and project images converted to WebP
@@ -30,7 +31,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 - Liquid glass maps are redrawn after a resize settles, and only the newest 48 are cached
 - Build empties `dist/` first and emits relative asset URLs (`--public-url ./`)
 - Sass `@import` replaced by `@use`
-- `og-image.png` converted to `og-image.jpg` (347 kB to 119 kB)
+- `og-image.png` converted to `og-image.jpg` (347 kB to 119 kB) and redrawn: the badge no longer cuts through its text
 - Résumé replaced: current role, no phone number or home address
 - `package.json` author, license (MIT), repository and homepage point to this fork
 

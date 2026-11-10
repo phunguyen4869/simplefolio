@@ -109,7 +109,7 @@ Mỗi dự án là một `<article class="bento-card">` trong `<div class="bento
 
 ### Ảnh xem trước khi chia sẻ
 
-`src/assets/og-image.jpg` là ảnh hiện ra khi chia sẻ link, kích thước 1200×630. Nếu thay ảnh, hãy giữ đúng kích thước này.
+`src/assets/og-image.jpg` là ảnh hiện ra khi chia sẻ link, kích thước 1200×630. Nếu thay ảnh, hãy giữ đúng kích thước này. Nguồn của ảnh là `docs/og-image.html`: mở file trong cửa sổ trình duyệt cỡ 1200×630 rồi chụp màn hình trang.
 
 Các thẻ `canonical`, `hreflang`, `og:url` và `og:image` đang trỏ tới `https://phunguyen4869.github.io/simplefolio/`. Nếu bạn host ở chỗ khác, hãy sửa các URL này trong `src/index.html`. Trang tiếng Việt lấy URL từ thẻ canonical. Facebook và Zalo cần URL đầy đủ (tuyệt đối).
 

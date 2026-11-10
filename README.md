@@ -109,7 +109,7 @@ Change `$primary-color` and `$secondary-color` in `_variables.scss` to set the b
 
 ### Sharing preview
 
-`src/assets/og-image.jpg` is the image shown when the link is shared. It is 1200×630. If you replace it, keep that size.
+`src/assets/og-image.jpg` is the image shown when the link is shared. It is 1200×630. If you replace it, keep that size. Its source is `docs/og-image.html`: open it in a browser window sized 1200×630 and save a screenshot of the page.
 
 The `canonical`, `hreflang`, `og:url` and `og:image` tags point to `https://phunguyen4869.github.io/simplefolio/`. If the site is hosted elsewhere, update those URLs in `src/index.html`. The Vietnamese page takes its URLs from the canonical one. Facebook and Zalo need absolute URLs.
 
